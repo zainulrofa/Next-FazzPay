@@ -32,7 +32,7 @@ export default function Home() {
   };
   const handleSignup = () => {
     console.log(">>>>>>>>>");
-    router.push("/signup");
+    router.push("/register");
   };
   return (
     <div className={styles.container}>
