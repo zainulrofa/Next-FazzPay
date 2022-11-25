@@ -3,21 +3,45 @@ import React, { useEffect, useState } from "react";
 import Layout from "components/LayoutAuth";
 import PageTitle from "components/Header";
 import styles from "styles/Register.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import authAction from "src/redux/actions/auth";
 
 export default function Register() {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [emptyForm, setEmptyForm] = useState(true);
-  const [unouthorized, setUnouthorized] = useState(false);
+  // const [unouthorized, setUnouthorized] = useState(false);
   const [body, setBody] = useState({});
+  const auth = useSelector((state) => state.auth);
+
+  const registerSuccess = () => {
+    toast.success("Congrats! Register Successfully, Please Check Your Email!");
+    router.push("/login");
+  };
+
+  const registerDenied = () => {
+    toast.error(`${auth.error}`);
+  };
 
   const registerHandler = (e) => {
     e.preventDefault();
+    dispatch(authAction.registerThunk(body, registerSuccess, registerDenied));
   };
 
   const togglePassword = () => setShowPassword(!showPassword);
 
   const checkEmptyForm = (body) => {
-    if (!body.email || !body.password || !body.firstName || !body.lastName)
+    if (
+      auth.isLoading ||
+      !body.email ||
+      !body.password ||
+      !body.firstName ||
+      !body.lastName
+    )
       return setEmptyForm(true);
     body.email &&
       body.password &&
