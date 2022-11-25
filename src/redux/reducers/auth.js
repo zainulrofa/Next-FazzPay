@@ -7,6 +7,7 @@ const initialState = {
   isError: false,
   isFulfilled: false,
   error: null,
+  logoutMsg: null,
 };
 
 const authReducer = (prevState = initialState, { payload, type }) => {
@@ -75,7 +76,10 @@ const authReducer = (prevState = initialState, { payload, type }) => {
         error: payload.error.response.data.msg,
       };
     case authLogout.concat("_", Fulfilled):
-      return initialState;
+      return {
+        ...prevState,
+        logoutMsg: payload.data.msg,
+      };
 
     default:
       return prevState;

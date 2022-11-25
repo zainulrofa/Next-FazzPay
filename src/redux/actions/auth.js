@@ -84,12 +84,13 @@ const loginThunk = (body, cbSuccess, cbDenied) => {
   };
 };
 
-const logoutThunk = () => {
+const logoutThunk = (cbSuccess) => {
   return async (dispatch) => {
     try {
       dispatch(logoutPending());
       const result = await logout();
       dispatch(logoutFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(logoutRejected(error));
     }
