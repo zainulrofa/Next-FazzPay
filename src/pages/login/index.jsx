@@ -1,15 +1,22 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Layout from "components/LayoutAuth";
 import PageTitle from "components/Header";
 import styles from "styles/Login.module.css";
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import authAction from "src/redux/actions/auth";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Login() {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [emptyForm, setEmptyForm] = useState(true);
   const [unouthorized, setUnouthorized] = useState(false);
   const [body, setBody] = useState({});
-  //   const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth);
 
   const checkEmptyForm = (body) => {
     if (!body.email || !body.password) return setEmptyForm(true);
@@ -17,12 +24,33 @@ export default function Login() {
   };
   const togglePassword = () => setShowPassword(!showPassword);
 
+  const loginSussess = () => {
+    if (!auth.pin)
+      return toast.success(`Login Successfully! Please create your pin!`);
+    return toast.success(`Login Successfully!Welcome ${body.email}`);
+  };
+
+  const loginError = () => toast.error(`Login Failed: ${auth.error}`);
+
   const changeHandler = (e) =>
     setBody({ ...body, [e.target.name]: e.target.value });
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+    dispatch(authAction.loginThunk(body, loginSussess, loginError));
+  };
 
   useEffect(() => {
     checkEmptyForm(body);
   }, [body]);
+
+  useEffect(() => {
+    if (auth.isLoading) setEmptyForm(true);
+    if (auth.isFulfilled) {
+      if (!auth.userData.pin) router.push("/createpin");
+      if (auth.userData.pin) console.log("directed to dashboard");
+    }
+  }, [auth]);
 
   return (
     <>
@@ -38,7 +66,7 @@ export default function Login() {
           wherever you are. Desktop, laptop, mobile phone? we cover all of that
           for you!
         </p>
-        <form className={styles["form"]}>
+        <form onSubmit={loginHandler} className={styles["form"]}>
           <div className={styles["email"]}>
             <i className="bi bi-envelope"></i>
             <input
@@ -73,7 +101,7 @@ export default function Login() {
             Login
           </button>
           <div className={styles["link-blue"]}>
-            Don’t have an account? Let’s{"  "}
+            Don`t have an account? Let`s{"  "}
             <Link href="/register">Register</Link>
           </div>
         </form>
