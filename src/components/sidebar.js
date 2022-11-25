@@ -1,5 +1,10 @@
+// import { Button, Modal } from "bootstrap";
 import { useRouter } from "next/router";
-import React, { use, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import authAction from "src/redux/actions/auth";
 import Styles from "styles/Sidebar.module.css";
 
 function Sidebar() {
@@ -7,8 +12,22 @@ function Sidebar() {
   const [selectTransfer, setTransfer] = useState(false);
   const [selectTopUp, setTopUp] = useState(false);
   const [selectProfile, setProfile] = useState(false);
+  const dispatch = useDispatch();
   const router = useRouter();
+  const errorMsg = useSelector((state) => state.auth.logoutMsg);
   const [show, setShow] = useState(false);
+  // const [openModal, setOpenModal] = useState(false);
+  // const handleModal = () => setOpenModal(!openModal);
+  // console.log(auth);
+
+  const logoutHandler = () => {
+    dispatch(
+      authAction.logoutThunk(() => {
+        toast.success(`${errorMsg}`);
+        router.push("/login");
+      })
+    );
+  };
 
   useEffect(() => {
     if (
@@ -27,7 +46,7 @@ function Sidebar() {
     setTransfer(false);
     setTopUp(false);
     setProfile(false);
-    router.push("/home/:username");
+    router.push("/home");
   };
   const transferHandler = (e) => {
     e.preventDefault();
@@ -139,7 +158,7 @@ function Sidebar() {
                 Profile
               </p>
             </div>
-            <div className={Styles.logout}>
+            <div className={Styles.logout} onClick={logoutHandler}>
               <i className="fa-solid fa-arrow-right-from-bracket"></i>
               <p className={Styles["close"]}>Logout</p>
             </div>
@@ -203,11 +222,25 @@ function Sidebar() {
           ></i>
           <p className={`${Styles.textDasboard} ${Styles.close}`}>Profile</p>
         </div>
-        <div className={Styles.logout}>
+        <div className={Styles.logout} onClick={logoutHandler}>
           <i className="fa-solid fa-arrow-right-from-bracket"></i>
           <p className={Styles["close"]}>Logout</p>
         </div>
       </div>
+      {/* <Modal show={openModal} onHide={handleModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Spectrum</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure want to logout?</Modal.Body>
+        <Modal.Footer>
+          <Button className={Styles["yes-btn"]} onClick={logoutHandler}>
+            Yes
+          </Button>
+          <Button className={Styles["close-btn"]} onClick={handleModal}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal> */}
     </>
   );
 }
