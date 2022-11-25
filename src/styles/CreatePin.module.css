@@ -105,6 +105,13 @@
   .password-notif.show {
     display: initial;
   }
+  .form .hide {
+    display: none;
+  }
+  .form .confirm-text {
+    text-align: center;
+    color: var(--secondary);
+  }
   @media (min-width: 768px) {
     .h1 {
       color: black;
@@ -140,5 +147,7 @@
     .form {
       gap: 3rem;
     }
+    .form .confirm-text {
+      color: var(--dark02);
+    }
   }
-  

@@ -1,4 +1,4 @@
-.container {
+  .container {
     display: flex;
     padding: 2rem 8rem;
     gap: 2rem;
@@ -374,9 +374,9 @@
     }
   
     /* .right-side {
-      /* display: none; */
-    } */
-  
+      display: none;
+    }
+   */
     .card {
       box-shadow: 0px 4px 20px 0px #0000000d;
       padding: 1rem 18px;
@@ -456,7 +456,7 @@
     .onMobile {
       display: none;
     }
-  
+  }
   
   @media screen and (max-width: 768px) {
     .container {
@@ -479,4 +479,3 @@
       width: 100%;
     }
   }
-  

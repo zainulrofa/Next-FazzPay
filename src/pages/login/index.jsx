@@ -14,9 +14,10 @@ export default function Login() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [emptyForm, setEmptyForm] = useState(true);
-  const [unouthorized, setUnouthorized] = useState(false);
+  // const [unouthorized, setUnouthorized] = useState(false);
   const [body, setBody] = useState({});
   const auth = useSelector((state) => state.auth);
+  console.log(auth.userData, "PINNYAA");
 
   const checkEmptyForm = (body) => {
     if (!body.email || !body.password) return setEmptyForm(true);
@@ -25,9 +26,10 @@ export default function Login() {
   const togglePassword = () => setShowPassword(!showPassword);
 
   const loginSussess = () => {
-    if (!auth.pin)
+    if (!auth.userData.pin)
       return toast.success(`Login Successfully! Please create your pin!`);
-    return toast.success(`Login Successfully!Welcome ${body.email}`);
+    if (auth.userData.pin)
+      return toast.success(`Login Successfully!Welcome ${body.email}`);
   };
 
   const loginError = () => toast.error(`Login Failed: ${auth.error}`);
@@ -48,7 +50,7 @@ export default function Login() {
     if (auth.isLoading) setEmptyForm(true);
     if (auth.isFulfilled) {
       if (!auth.userData.pin) router.push("/createpin");
-      if (auth.userData.pin) console.log("directed to dashboard");
+      if (auth.userData.pin) router.push("/home");
     }
   }, [auth]);
 
