@@ -1,0 +1,63 @@
+.btn {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #6379F4;
+    border-radius: 15px;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
+  .login {
+    width: 120px;
+    height: 48px;
+    color: #6379F4;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #ffffff;
+  }
+
+  .login p {
+    margin: 0px;
+  }
+
+  .signup {
+    width: 120px;
+    height: 48px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #6379F4;
+  }
+
+  .signup p {
+    margin: 0px;
+  }
+
+  .try {
+    width: 173px;
+    height: 57px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #6379F4;
+  }
+
+  .try p {
+    margin: 0px;
+  }
+
+  .pageLogin {
+    width: 100%;
+    background-color: #DADADA;
+    font-size: 18px;
+    font-weight: 800;
+    color:#88888F;
+    height: 57px;
+    border: none;
+  }
+  

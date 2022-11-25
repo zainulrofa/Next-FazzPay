@@ -1,0 +1,165 @@
+.navbar {
+    background-color: white;
+    box-shadow: 1px 11px 32px -5px rgba(0, 0, 0, 0.48);
+    -webkit-box-shadow: 1px 11px 32px -5px rgba(0, 0, 0, 0.48);
+    -moz-box-shadow: 1px 11px 32px -5px rgba(0, 0, 0, 0.48);
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 8rem;
+}
+
+.navbar p {
+    margin-bottom: 0;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-name {
+    font-weight: 700;
+    font-size: 18px;
+    color: #3A3D42;
+}
+
+.navbar-phone {
+    font-weight: 400;
+    font-size: 13px;
+    color: #3A3D42;
+}
+
+.title {
+    color: #6379F4;
+    font-weight: 700;
+    font-size: 29px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.mobile {
+    display: none;
+}
+
+.pc {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.on-mobile {
+    display: none;
+}
+
+.modal::-webkit-scrollbar {
+    display: none;
+}
+
+
+.modal {
+    user-select: none;
+    overflow: auto;
+    max-height: 45rem;
+    position: absolute;
+    background-color: white;
+    padding: 2rem;
+    z-index: 10;
+    right: 5.9rem;
+    top: 8rem;
+    box-shadow: 0px 0px 70px 0px #63636326;
+    width: 403px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.card {
+    margin-bottom: 1.5rem;
+    background-color: white;
+    box-shadow: 0px 0px 70px 0px #63636326;
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    gap: 1rem;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.name {
+    color: #7A7A7A;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 18px;
+    color: #43484F;
+}
+
+@media screen and (max-width:567px) {
+    .modal {
+        right: 1rem;
+        top: 10rem !important;
+        width: 409px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+
+    .navbar-left {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-left: 1.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        box-shadow: 0px 10px 20px 0px #0000000D;
+    }
+
+    .navbar-right {
+        width: 100%;
+        justify-content: space-between;
+        padding: 27px 24px 0px;
+    }
+
+    .mobile {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .greating {
+        color: #646464;
+    }
+
+    .on-mobile {
+        display: block;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .navbar {
+        padding: 2rem 2rem;
+    }
+
+    .modal {
+        right: 1rem;
+        top: 8rem;
+        width: 409px;
+    }
+}

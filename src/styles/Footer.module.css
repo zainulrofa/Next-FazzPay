@@ -1,0 +1,31 @@
+.footer {
+    display: flex;
+    background-color: #6379F4;
+    color: #EFEFEFE5;
+    justify-content: space-between;
+    padding: 1rem 8rem;
+}
+
+.footer p {
+    margin-bottom: 0;
+    font-family: "Nunito Sans";
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.footer-right {
+    display: flex;
+    gap: 3rem;
+}
+
+@media screen and (max-width:567px) {
+    .footer {
+        display: none;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .footer {
+        padding: 1rem 2rem;
+    }
+}

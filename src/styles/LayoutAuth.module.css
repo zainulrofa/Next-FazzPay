@@ -1,0 +1,115 @@
+.main {
+    position: relative;
+  }
+  .navbar {
+    padding: 2vmax 5vh;
+    height: calc(4vmax + 3rem);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  
+  .navbar a {
+    color: white;
+    font-weight: 700;
+  }
+  .left {
+    display: none;
+  }
+  
+  .left h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+  }
+  .left p {
+    color: white;
+  }
+  .image-container {
+    width: calc(100% - 15vmax);
+    margin: 0 auto;
+    height: 65%;
+    position: relative;
+  }
+  
+  .img1,
+  .img2 {
+    object-fit: contain;
+    height: 100%;
+    aspect-ratio: 2/5;
+    /* width: 22rem; */
+    position: absolute;
+  }
+  
+  .img1 {
+    content: url("/images/phone1.png");
+    transform: rotate(7.5deg);
+    left: 10%;
+  }
+  
+  .img2 {
+    content: url("/images/phone2.jpg");
+    right: 10%;
+    transform: rotate(-7.5deg);
+  }
+  
+  .right {
+    height: 100vh;
+    padding: calc(4vmax + 3rem) 5vmax 3vmax 5vmax;
+    background: url("/images/auth-bg.jpg");
+  }
+  
+  .child {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 1rem;
+  }
+  @media (min-width: 768px) {
+    .main {
+      display: flex;
+    }
+  
+    .navbar {
+      padding: 2vmax 5vw;
+    }
+    .left,
+    .right {
+      flex: 1;
+      height: 100vh;
+      padding: calc(4vmax + 3rem) 5vmax 3vmax 5vmax;
+    }
+  
+    .right {
+      background: none;
+    }
+  
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: url("/images/auth-bg.jpg");
+      background-size: cover;
+      background-position: right;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .img1,
+    .img2 {
+      aspect-ratio: 1;
+    }
+  }
+  
+  @media (min-width: 1440px) {
+    .img1,
+    .img2 {
+      aspect-ratio: 1;
+    }
+  }
+  
