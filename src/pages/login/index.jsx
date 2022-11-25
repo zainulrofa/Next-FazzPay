@@ -17,7 +17,6 @@ export default function Login() {
   // const [unouthorized, setUnouthorized] = useState(false);
   const [body, setBody] = useState({});
   const auth = useSelector((state) => state.auth);
-  console.log(auth.userData, "PINNYAA");
 
   const checkEmptyForm = (body) => {
     if (!body.email || !body.password) return setEmptyForm(true);
