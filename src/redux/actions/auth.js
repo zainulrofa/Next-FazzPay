@@ -111,26 +111,30 @@ const registerThunk = (body, cbSuccess, cbDenied) => {
   };
 };
 
-const forgotThunk = (body) => {
+const forgotThunk = (body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(forgotPending());
       const result = await forgotPassword(body);
       dispatch(forgotFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(forgotRejected(error));
+      typeof cbDenied === "function" && cbDenied(error);
     }
   };
 };
 
-const resetThunk = (body) => {
+const resetThunk = (body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(resetPending());
       const result = await resetPassword(body);
       dispatch(resetFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(resetRejected(error));
+      typeof cbDenied === "function" && cbDenied(error);
     }
   };
 };
