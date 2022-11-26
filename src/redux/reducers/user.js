@@ -7,7 +7,7 @@ const initialState = {
   isError: false,
   error: null,
   profile: {
-    firsName: null,
+    firstName: null,
     lastName: null,
     email: null,
     image: null,
@@ -51,7 +51,7 @@ const userReducer = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isLoading: false,
         profile: {
-          firsName: payload.data.data.firsName,
+          firstName: payload.data.data.firstName,
           lastName: payload.data.data.lastName,
           email: payload.data.data.email,
           image: payload.data.data.image,
