@@ -118,7 +118,7 @@ export default function Register() {
             Register
           </button>
           <div className={styles["link-blue"]}>
-            Already have an account? Let’s{"  "}
+            Already have an account? Let`s{"  "}
             <Link href="/login">Login</Link>
           </div>
         </form>
