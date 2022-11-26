@@ -1,31 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Header from "components/Header";
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
 import Footer from "components/Footer";
+import CardHistory from "components/CardHistory";
 import css from "styles/Home.module.css";
-import user from "src/assets/1.png";
-import user2 from "src/assets/image.png";
+// import user from "src/assets/1.png";
+// import user2 from "src/assets/image.png";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import historyAction from "src/redux/actions/history";
 
-function Home({ children }) {
+function Home() {
+  const dispatch = useDispatch();
   const router = useRouter();
+  const profile = useSelector((state) => state.user.profile);
+  const auth = useSelector((state) => state.auth);
+  const history = useSelector((state) => state.history);
+  const [query, setQuery] = useState({ page: 1, limit: 4, filter: "WEEK" });
+
+  const currency = (price) => {
+    return (
+      "Rp " +
+      parseFloat(price)
+        .toFixed()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    );
+  };
+  useEffect(() => {
+    dispatch(historyAction.historyThunk(auth.userData.token, query));
+  }, [query]);
+
+  console.log(history);
   return (
     <>
       <Header title={"HOME"} />
       <Navbar>
         <div className={css.container}>
-          <div className={`col-lg-3 ${css.onMobile}`}>
+          <div className={`col-lg-3 col-md-3 ${css.onMobile}`}>
             <Sidebar />
           </div>
-          <div className="col-lg-9">
+          <div className="col-lg-9 col-md-9">
             <aside className={css.side}>
               <div className={css["side-top"]}>
                 <div className={css["top-left"]}>
                   <p className={css.balance}>Balance</p>
-                  <p className={css.price}>Rp120.000</p>
-                  <p className={css.phone}>+62 813-9387-7946</p>
+                  <p className={css.price}>{currency(profile.balance)}</p>
+                  <p className={css.phone}>{`+62${profile.noTelp}`}</p>
                 </div>
                 <div className={`${css["top-btn"]} ${css.btnHide}`}>
                   <div className={css.btn}>
@@ -139,54 +161,9 @@ function Home({ children }) {
                       See all
                     </p>
                   </div>
-                  <div className={css["card"]}>
-                    <div className={css["image-name"]}>
-                      <Image src={user} alt="user" width={56} height={56} />
-                      <div>
-                        <p className={css["username"]}>Samuel Suhi</p>
-                        <p className={css.status}>Accept</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className={css.recive}>+Rp50.000</p>
-                    </div>
-                  </div>
-                  <div className={css["card"]}>
-                    <div className={css["image-name"]}>
-                      <Image src={user2} alt="user" width={56} height={56} />
-                      <div>
-                        <p className={css["username"]}>Samuel Suhi</p>
-                        <p className={css.status}>Transfer</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className={css.paid}>-Rp149.000</p>
-                    </div>
-                  </div>
-                  <div className={css["card"]}>
-                    <div className={css["image-name"]}>
-                      <Image src={user} alt="user" width={56} height={56} />
-                      <div>
-                        <p className={css["username"]}>Samuel Suhi</p>
-                        <p className={css.status}>Accept</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className={css.recive}>+Rp50.000</p>
-                    </div>
-                  </div>
-                  <div className={css["card"]}>
-                    <div className={css["image-name"]}>
-                      <Image src={user2} alt="user" width={56} height={56} />
-                      <div>
-                        <p className={css["username"]}>Samuel Suhi</p>
-                        <p className={css.status}>Transfer</p>
-                      </div>
-                    </div>
-                    <div>
-                      <p className={css.paid}>-Rp149.000</p>
-                    </div>
-                  </div>
+                  {history?.history?.map((data, index) => {
+                    return <CardHistory data={data} key={index} />;
+                  })}
                 </div>
               </div>
             </aside>
