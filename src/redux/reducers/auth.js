@@ -8,6 +8,7 @@ const initialState = {
   isFulfilled: false,
   error: null,
   logoutMsg: null,
+  msg: null,
 };
 
 const authReducer = (prevState = initialState, { payload, type }) => {
@@ -79,6 +80,48 @@ const authReducer = (prevState = initialState, { payload, type }) => {
       return {
         ...prevState,
         logoutMsg: payload.data.msg,
+      };
+
+    case authForgot.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case authForgot.concat("_", Rejected):
+      return {
+        ...prevState,
+        isError: true,
+        isLoading: false,
+        error: payload.error.response.data.msg,
+      };
+    case authForgot.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        msg: payload.data.msg,
+      };
+
+    case authReset.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case authReset.concat("_", Rejected):
+      return {
+        ...prevState,
+        isError: true,
+        isLoading: false,
+        error: payload.error.response.data,
+      };
+    case authReset.concat("_", Fulfilled):
+      return {
+        ...prevState,
+        isLoading: false,
+        msg: payload.data.msg,
       };
 
     default:
