@@ -12,4 +12,5 @@ export const ACTION_STRING = {
   userEditPin: "USER_EDIT_PIN",
   userEditPassword: "USER_EDIT_PASSWORD",
   userDeleteImage: "USER_DELETE_IMAGE",
+  transactionGetHistory: "GET_HISTORY",
 };
