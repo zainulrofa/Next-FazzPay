@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import profile from "src/assets/profile.png";
+import sample from "src/assets/avatar.webp";
 import css from "src/styles/Navbar.module.css";
 import Sidebar from "components/sidebar";
+import { useSelector } from "react-redux";
 
 function Navbar({ children }) {
   const [show, setShow] = useState(false);
+  const profile = useSelector((state) => state.user.profile);
+  // console.log(profile);
+  const link = process.env.CLOUDINARY_LINK;
 
   const notifHandler = (e) => {
     e.preventDefault();
@@ -27,18 +31,38 @@ function Navbar({ children }) {
         </div>
         <div className={css["navbar-right"]}>
           <div className={css["mobile"]}>
-            <Image src={profile} alt="profile" style={{ cursor: "pointer" }} />
+            <div className={css["image-container"]}>
+              <Image
+                src={!profile.image ? sample : `${link}/${profile.image}`}
+                alt="profile"
+                style={{ cursor: "pointer" }}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <div className={css["name-phone"]}>
               <p className={css["greating"]}>Hello,</p>
-              <p className={css["navbar-name"]}>Robert Chandler</p>
+              <p
+                className={css["navbar-name"]}
+              >{`${profile.firstName} ${profile.lastName}`}</p>
               {/* <p className={css["navbar-phone"]}>+62 8139 3877 7946</p> */}
             </div>
           </div>
           <div className={css["pc"]}>
-            <Image src={profile} alt="profile" style={{ cursor: "pointer" }} />
+            <div className={css["image-container"]}>
+              <Image
+                src={!profile.image ? sample : `${link}/${profile.image}`}
+                alt="profile"
+                style={{ cursor: "pointer" }}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
             <div className={css["name-phone"]}>
-              <p className={css["navbar-name"]}>Robert Chandler</p>
-              <p className={css["navbar-phone"]}>+62 8139 3877 7946</p>
+              <p
+                className={css["navbar-name"]}
+              >{`${profile.firstName} ${profile.lastName}`}</p>
+              <p className={css["navbar-phone"]}>{`+62${profile.noTelp}`}</p>
             </div>
           </div>
           <i
