@@ -27,11 +27,9 @@ export default function Home() {
   const router = useRouter();
 
   const handleLogin = () => {
-    console.log(">>>>>>>>>");
     router.push("/login");
   };
   const handleSignup = () => {
-    console.log(">>>>>>>>>");
     router.push("/register");
   };
   return (
