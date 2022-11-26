@@ -1,8 +1,8 @@
 .navbar {
     background-color: white;
-    box-shadow: 1px 11px 32px -5px rgba(0, 0, 0, 0.48);
+    /* box-shadow: 1px 11px 32px -5px rgba(0, 0, 0, 0.48);
     -webkit-box-shadow: 1px 11px 32px -5px rgba(0, 0, 0, 0.48);
-    -moz-box-shadow: 1px 11px 32px -5px rgba(0, 0, 0, 0.48);
+    -moz-box-shadow: 1px 11px 32px -5px rgba(0, 0, 0, 0.48); */
     display: flex;
     justify-content: space-between;
     padding: 2rem 8rem;
@@ -46,6 +46,14 @@
     display: flex;
     gap: 1rem;
     align-items: center;
+}
+
+.mobile .image-container, .pc .image-container {
+    position: relative;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: .9rem;
+    overflow: hidden;
 }
 
 .on-mobile {

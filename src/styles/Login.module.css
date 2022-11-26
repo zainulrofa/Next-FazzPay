@@ -68,13 +68,13 @@
   width: 100%;
   height: 3rem;
   border: none;
-  color: black;
+  color: var(--primary);
   background-color: var(--secondary);
   font-weight: 700;
   border-radius: 0.75rem;
 }
 .form button:disabled {
-  color: var(--disabled-mobile);
+  color: white;
   background-color: var(--dark03);
 }
 .form button:hover {
@@ -116,6 +116,10 @@
     color: var(--secondary);
     background-color: var(--primary);
   }
+  .form button:disabled {
+    color: var(--gray);
+    background-color: var(--dark03);
+  }
   .link-blue {
     color: var(--dark02);
   }
@@ -125,11 +129,4 @@
   .form {
     gap: 3rem;
   }
-}
-
-@media screen and (max-width:576px) {
-  .form button:disabled {
-    color: white;
-    background-color: var(--dark03);
-  }  
 }

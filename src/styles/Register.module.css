@@ -74,7 +74,7 @@
     border-radius: 0.75rem;
   }
   .form button:disabled {
-    color: var(--disabled-mobile);
+    color: white;
     background-color: var(--dark03);
   }
   .form button:hover {
