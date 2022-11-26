@@ -5,11 +5,21 @@ import css from "src/styles/Navbar.module.css";
 import Sidebar from "components/sidebar";
 import { useSelector } from "react-redux";
 
-function Navbar({ children }) {
+function Navbar({ children, history }) {
   const [show, setShow] = useState(false);
   const profile = useSelector((state) => state.user.profile);
-  // console.log(profile);
   const link = process.env.CLOUDINARY_LINK;
+  const received = `${css["green"]} fa-solid fa-arrow-down`;
+  const sent = `${css["red"]} fa-solid fa-arrow-up`;
+
+  const currency = (price) => {
+    return (
+      "Rp. " +
+      parseFloat(price)
+        .toFixed()
+        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    );
+  };
 
   const notifHandler = (e) => {
     e.preventDefault();
@@ -80,118 +90,29 @@ function Navbar({ children }) {
       {show && (
         <>
           <div className={css.modal}>
-            <div className={css.card}>
-              <i
-                className="fa-solid fa-arrow-down"
-                style={{
-                  color: "#1EC15F",
-                  fontSize: "30px",
-                  marginBottom: "0.5rem",
-                }}
-              ></i>
-              <div style={{ lineHeight: "15px" }}>
-                <p className={css["name"]}>Accept from Joshua Lee</p>
-                <p className={css["price"]}>Rp220.000</p>
-              </div>
-            </div>
-            <div className={css.card}>
-              <i
-                className="fa-solid fa-arrow-up"
-                style={{
-                  color: "#FF5B37",
-                  fontSize: "30px",
-                  marginBottom: "0.5rem",
-                }}
-              ></i>
-              <div style={{ lineHeight: "15px" }}>
-                <p className={css["name"]}>Transfer to Deni</p>
-                <p className={css["price"]}>Rp149.000</p>
-              </div>
-            </div>
-            <div className={css.card}>
-              <i
-                className="fa-solid fa-arrow-down"
-                style={{
-                  color: "#1EC15F",
-                  fontSize: "30px",
-                  marginBottom: "0.5rem",
-                }}
-              ></i>
-              <div style={{ lineHeight: "15px" }}>
-                <p className={css["name"]}>Accept from Joshua Lee</p>
-                <p className={css["price"]}>Rp220.000</p>
-              </div>
-            </div>
-            <div className={css.card}>
-              <i
-                className="fa-solid fa-arrow-up"
-                style={{
-                  color: "#FF5B37",
-                  fontSize: "30px",
-                  marginBottom: "0.5rem",
-                }}
-              ></i>
-              <div style={{ lineHeight: "15px" }}>
-                <p className={css["name"]}>Transfer to Deni</p>
-                <p className={css["price"]}>Rp149.000</p>
-              </div>
-            </div>
-            <div className={css.card}>
-              <i
-                className="fa-solid fa-arrow-down"
-                style={{
-                  color: "#1EC15F",
-                  fontSize: "30px",
-                  marginBottom: "0.5rem",
-                }}
-              ></i>
-              <div style={{ lineHeight: "15px" }}>
-                <p className={css["name"]}>Accept from Joshua Lee</p>
-                <p className={css["price"]}>Rp220.000</p>
-              </div>
-            </div>
-            <div className={css.card}>
-              <i
-                className="fa-solid fa-arrow-up"
-                style={{
-                  color: "#FF5B37",
-                  fontSize: "30px",
-                  marginBottom: "0.5rem",
-                }}
-              ></i>
-              <div style={{ lineHeight: "15px" }}>
-                <p className={css["name"]}>Transfer to Deni</p>
-                <p className={css["price"]}>Rp149.000</p>
-              </div>
-            </div>
-            <div className={css.card}>
-              <i
-                className="fa-solid fa-arrow-down"
-                style={{
-                  color: "#1EC15F",
-                  fontSize: "30px",
-                  marginBottom: "0.5rem",
-                }}
-              ></i>
-              <div style={{ lineHeight: "15px" }}>
-                <p className={css["name"]}>Accept from Joshua Lee</p>
-                <p className={css["price"]}>Rp220.000</p>
-              </div>
-            </div>
-            <div className={css.card}>
-              <i
-                className="fa-solid fa-arrow-up"
-                style={{
-                  color: "#FF5B37",
-                  fontSize: "30px",
-                  marginBottom: "0.5rem",
-                }}
-              ></i>
-              <div style={{ lineHeight: "15px" }}>
-                <p className={css["name"]}>Transfer to Deni</p>
-                <p className={css["price"]}>Rp149.000</p>
-              </div>
-            </div>
+            {history?.length < 1 ? (
+              <p>No transaction yet</p>
+            ) : (
+              history?.map((data) => {
+                return (
+                  <>
+                    <div className={css.card}>
+                      <i className={data.type === "send" ? sent : received}></i>
+                      <div>
+                        <p className={css["name"]}>
+                          {data.type === "send"
+                            ? `Transfer to ${data.fullName}`
+                            : data.type === "topup"
+                            ? `Top up`
+                            : `Accept from ${data.fullName}`}
+                        </p>
+                        <p className={css["price"]}>{currency(data.amount)}</p>
+                      </div>
+                    </div>
+                  </>
+                );
+              })
+            )}
           </div>
         </>
       )}

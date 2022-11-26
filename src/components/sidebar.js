@@ -36,7 +36,7 @@ function Sidebar() {
       router.pathname.includes("confirmation")
     )
       return setTransfer(true);
-    if (router.pathname.includes("home")) return setDashboard(true);
+    if (router.pathname.includes("dashboard")) return setDashboard(true);
     if (router.pathname.includes("profile")) return setProfile(true);
   }, []);
 
@@ -46,7 +46,7 @@ function Sidebar() {
     setTransfer(false);
     setTopUp(false);
     setProfile(false);
-    router.push("/home");
+    router.push("/dashboard");
   };
   const transferHandler = (e) => {
     e.preventDefault();

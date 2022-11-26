@@ -1,7 +1,8 @@
-  .container {
+.container {
     display: flex;
-    padding: 2rem 8rem;
+    padding: 2.5rem 8rem;
     gap: 2rem;
+    min-height: 76.1vh;
     background-color: #e5e5e5;
   }
   
@@ -237,7 +238,7 @@
   }
   
   .bottom-right {
-    width: 50%;
+    width: 100%;
     background-color: white;
     border-radius: 25px;
     padding: 25px;
@@ -261,12 +262,61 @@
     font-size: 18px;
   }
   
-  .seall {
-    color: #6379f4;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
+  .filterHead {
+    text-align: center;
+  }
+  
+  .show {
+    font-weight: bold;
+  }
+  
+  .filter {
     user-select: none;
+    background: rgba(58, 61, 66, 0.1);
+    border-radius: 12px;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    padding: 0.7rem 1.4rem;
+    color: #000000;
+    cursor: pointer;
+    position: relative;
+    min-width: 11rem;
+  }
+  
+  .filterDownOn {
+    position: absolute;
+    opacity: 1;
+    cursor: pointer;
+    font-weight: bold;
+    top: 3rem;
+    left: 0.1rem;
+    z-index: 1000;
+    padding: 0.5rem 1rem 0rem 1rem;
+    background: whitesmoke;
+    border-radius: 1rem;
+    width: 11rem;
+  }
+  
+  .icon {
+    position: absolute;
+    top: 17px;
+    right: 16px;
+    user-select: none;
+    cursor: pointer;
+  }
+  
+  .filterDownOn p:hover {
+    color: #6379f4;
+  }
+  
+  .filterDownOff {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .filterDownOn2 {
+    padding: 0.5rem;
   }
   
   .card {
@@ -281,14 +331,6 @@
     gap: 0.7rem;
     align-items: center;
   }
-
-  .image-container {
-    position: relative;
-    width: 4rem;
-    height: 4rem;
-    border-radius: 1rem;
-    overflow: hidden;
-  }
   
   .username {
     color: #4d4b57;
@@ -302,7 +344,7 @@
     font-size: 14px;
   }
   
-  .recive {
+  .recieve {
     color: #1ec15f;
     font-weight: 700;
     font-size: 16px;
@@ -318,180 +360,38 @@
     background-color: #48507c;
   }
   
-  .hide {
-    display: none;
-  }
-  
-  .mobile-only {
-    display: none;
+  @media screen and (max-width: 768px) {
+    .container {
+      padding: 1rem 0.5rem;
+      gap: 0.5rem;
+    }
   }
   
   @media screen and (max-width: 567px) {
-    .mobile-only {
-      display: block;
-    }
-
-    .price {
-      font-weight: 700 !important;
-      font-size: 30px !important;
+    .onMobile {
+      display: none;
     }
   
-    .toggle {
-      user-select: none;
-      position: absolute;
-      cursor: pointer !important;
-      top: 1rem;
-      left: 1rem;
-      background-color: white;
-      padding: 0 0.5rem;
-      border-top-right-radius: 1rem;
-      border-bottom-right-radius: 1rem;
-      font-size: 2rem;
-      color: #6379f4;
-    }
-  
-    .toggle-list {
-      background-color: white;
-      z-index: 1;
-      width: 60%;
-      height: 51%;
-      color: #3a3d42cc;
-      font-family: "Nunito Sans";
-      font-weight: 400;
-      font-size: 18px;
+    .container {
       display: flex;
-      flex-direction: column;
-      padding: 1.5rem;
-      box-shadow: 0px 4px 20px 0px #0000000d;
+      padding: 1rem 1rem;
+      gap: 2rem;
+      background-color: #e5e5e5;
+    }
+  
+    .bottom-right {
+      /* width: 100%; */
+      background-color: white;
       border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0px 4px 20px 0px #0000000d;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
       -ms-border-radius: 25px;
       -o-border-radius: 25px;
-      opacity: 0;
-      transform: translateX(-100%);
     }
   
-    .container {
-      flex-direction: column;
-      padding: 0;
-      align-items: center;
-      background-color: #fafcff;
-    }
-  
-    .bottom {
-      justify-content: center;
-      align-items: center;
-      flex-direction: column !important;
-      width: 100%;
-    }
-  
-    /* .right-side {
-      display: none;
-    }
-   */
-    .card {
-      box-shadow: 0px 4px 20px 0px #0000000d;
-      padding: 1rem 18px;
-      width: 100%;
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-  
-    .top-left {
-      font-size: 10px !important;
-    }
-  
-    .right-top {
-      padding: 29px 29px 19px;
-      margin-bottom: 0;
-    }
-  
-    .bottom-right {
-      padding: 0;
-      width: 100%;
-    }
-  
-    .hide {
-      display: block;
-    }
-  
-    .btnHide {
-      display: none !important;
-    }
-  
-    .top-btn {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-  
-    .btn {
-      font-size: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 1rem !important;
-      width: 10rem !important;
-      height: 4rem !important;
-      background-color: #eaedff;
-    }
-  
-    .top-left {
-      line-height: 20px;
-    }
-  
-    .btn i {
-      color: #608de2;
-    }
-  
-    .btn p {
-      color: #514f5b;
-    }
-  
-    .btn:active {
-      color: white !important;
-    }
-  
-    .btn {
-      margin-bottom: 0;
-    }
-  
-    .side {
-      display: flex;
-      width: 100% !important;
-      flex-direction: column;
-    }
-  
-    .side-top {
-      width: 100%;
-    }
-  
-    .onMobile {
-      display: none;
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-    .container {
-      padding: 1rem;
-      gap: 0.5rem;
-    }
-  
-    .bottom {
-      margin-top: 0.5rem;
-      gap: 0.5rem;
-      flex-direction: column-reverse;
-    }
-  
-    .side {
-      width: 100%;
-      padding-right: 1rem;
-    }
-  
-    .bottom-right,
-    .right-side {
-      width: 100%;
+    .filter {
+      width: 14rem;
     }
   }

@@ -27,7 +27,7 @@ const historyReducer = (prevState = initialState, { type, payload }) => {
         isError: true,
         isLoading: false,
         isFulfilled: false,
-        error: payload.error.response.data.msg,
+        error: payload.error.message,
       };
     case transactionGetHistory.concat("_", Fulfilled):
       return {

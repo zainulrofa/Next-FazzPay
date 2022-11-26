@@ -18,7 +18,7 @@ function Home() {
   const profile = useSelector((state) => state.user.profile);
   const auth = useSelector((state) => state.auth);
   const history = useSelector((state) => state.history);
-  const [query, setQuery] = useState({ page: 1, limit: 4, filter: "WEEK" });
+  const [query, setQuery] = useState({ page: 1, limit: 10, filter: "WEEK" });
 
   const currency = (price) => {
     return (
@@ -36,7 +36,7 @@ function Home() {
   return (
     <>
       <Header title={"HOME"} />
-      <Navbar>
+      <Navbar history={history?.history}>
         <div className={css.container}>
           <div className={`col-lg-3 col-md-3 ${css.onMobile}`}>
             <Sidebar />
@@ -155,15 +155,23 @@ function Home() {
                     <p
                       className={css["seall"]}
                       onClick={() => {
-                        router.push("/history/:id");
+                        router.push("/dashboard/history");
                       }}
                     >
                       See all
                     </p>
                   </div>
-                  {history?.history?.map((data, index) => {
+                  {/* {history?.history?.map((data, index) => {
                     return <CardHistory data={data} key={index} />;
-                  })}
+                  })} */}
+                  {history?.history.length < 1 ? (
+                    <p>There`s not transaction yet</p>
+                  ) : (
+                    history?.history?.map((data, index) => {
+                      if (index < 4)
+                        return <CardHistory data={data} key={index} />;
+                    })
+                  )}
                 </div>
               </div>
             </aside>

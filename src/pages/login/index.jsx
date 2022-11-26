@@ -53,7 +53,7 @@ export default function Login() {
         userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
       );
       if (!auth.userData.pin) router.push("/createpin");
-      if (auth.userData.pin) router.push("/home");
+      if (auth.userData.pin) router.push("/dashboard");
     }
   }, [auth]);
 

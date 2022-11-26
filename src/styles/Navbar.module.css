@@ -91,6 +91,7 @@
     padding: 1rem;
     border-radius: 10px;
     display: flex;
+    align-items: center;
     gap: 1rem;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -109,6 +110,17 @@
     font-size: 18px;
     color: #43484F;
 }
+
+.green {
+    color: #1ec15f;
+    font-size: 30px;
+    margin-bottom: 0.5rem;
+  }
+  .red {
+    color: #ff5b37;
+    font-size: 30px;
+    margin-bottom: 0.5rem;
+  }
 
 @media screen and (max-width:567px) {
     .modal {
