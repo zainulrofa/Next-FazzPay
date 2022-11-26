@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import authAction from "src/redux/actions/auth";
 import "react-toastify/dist/ReactToastify.css";
+import userAction from "src/redux/actions/user";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -48,6 +49,9 @@ export default function Login() {
   useEffect(() => {
     if (auth.isLoading) setEmptyForm(true);
     if (auth.isFulfilled) {
+      dispatch(
+        userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
+      );
       if (!auth.userData.pin) router.push("/createpin");
       if (auth.userData.pin) router.push("/home");
     }
@@ -94,7 +98,7 @@ export default function Login() {
             ></i>
           </div>
           <div className={styles["link-forgot"]}>
-            <Link href="/forgot" passHref>
+            <Link href="/reset-password" passHref>
               Forgot password?
             </Link>
           </div>
