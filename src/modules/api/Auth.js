@@ -20,4 +20,4 @@ export const forgotPassword = (body) =>
   axios.post(`${baseUrl}/forgot-password`, body);
 
 export const resetPassword = (body) =>
-  axios.post(`${baseUrl}/reset-password`, body);
+  axios.patch(`${baseUrl}/reset-password`, body);
