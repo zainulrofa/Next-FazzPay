@@ -153,14 +153,16 @@ const editProfileThunk = (token, id, body) => {
   };
 };
 
-const editPhoneThunk = (token, id, body) => {
+const editPhoneThunk = (token, id, body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(editPhonePending());
       const result = await editPhone(token, id, body);
       dispatch(editPhoneFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(editPhoneRejected(error));
+      typeof cbDenied === "function" && cbDenied();
     }
   };
 };
