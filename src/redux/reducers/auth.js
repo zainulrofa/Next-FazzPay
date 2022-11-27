@@ -78,7 +78,7 @@ const authReducer = (prevState = initialState, { payload, type }) => {
       };
     case authLogout.concat("_", Fulfilled):
       return {
-        ...prevState,
+        ...initialState,
         logoutMsg: payload.data.msg,
       };
 
