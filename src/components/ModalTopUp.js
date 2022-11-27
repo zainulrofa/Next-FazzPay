@@ -8,15 +8,15 @@ import styles from "styles/ModalTopUp.module.css";
 function ModalTopUp({ setOpen, open, token }) {
   const dispatch = useDispatch();
   const [body, setBody] = useState({});
-  const directedLink = useSelector((state) => state.topUp.redirectUrl);
+  //   const directedLink = useSelector((state) => state.topUp.redirectUrl);
   const linkRef = useRef(null);
 
-  console.log(directedLink);
+  //   console.log(directedLink);
 
   const changeHandler = (e) =>
     setBody({ ...body, [e.target.name]: e.target.value });
 
-  const topUpSuccess = () => {
+  const topUpSuccess = (directedLink) => {
     setOpen(!open);
     // toast.success("Redirecting you to payment page");
     window.open(`${directedLink}`, "_blank");
