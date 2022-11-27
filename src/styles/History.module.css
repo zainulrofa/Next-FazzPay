@@ -364,15 +364,16 @@
     margin-top: 1rem;
     display: flex;
     justify-content: flex-end;
-    gap: 2rem;
+    gap: 1rem;
     margin: 0;
   }
 
   .btn-container button {
     border: none;
     background-color: var(--primary);
-    padding: 0.25rem 0.5rem;
+    padding: .2rem 0.5rem;
     cursor: pointer;
+    border-radius: .5rem;
   }
   
   .btn-container button:hover {
@@ -383,7 +384,7 @@
   }
   
   .btn-container button:disabled {
-    background-color: var(--dark02);
+    background-color: #b5b0ed;
     color: var(--secondary);
     cursor: not-allowed;
   }

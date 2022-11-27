@@ -127,7 +127,7 @@ function Home() {
                 setQuery({ ...query, page: query.page - 1 });
               }}
             >
-              <i className="bi bi-chevron-left"></i>
+              <i className="fa-solid fa-caret-left"></i>
             </button>
             <button
               disabled={query.page === totalPage ? true : false}
@@ -135,7 +135,7 @@ function Home() {
                 setQuery({ ...query, page: query.page + 1 });
               }}
             >
-              <i className="bi bi-chevron-right"></i>
+              <i className="fa-solid fa-caret-right"></i>
             </button>
           </div>
         </aside>
