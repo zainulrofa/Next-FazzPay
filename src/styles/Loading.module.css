@@ -3,7 +3,7 @@
     /*
        animation: loader 5s linear infinite; 
     */
-    
+    display: inline-block;
     position: relative;
     top: 30%;
     left: 40%;

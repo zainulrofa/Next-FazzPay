@@ -408,6 +408,7 @@
     }
   
     .bottom-right {
+      position: relative;
       padding: 0;
       width: 100%;
     }

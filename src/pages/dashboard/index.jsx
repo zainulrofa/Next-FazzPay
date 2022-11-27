@@ -4,6 +4,7 @@ import Header from "components/Header";
 import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
 import Footer from "components/Footer";
+import Loading from "components/Loading";
 import CardHistory from "components/CardHistory";
 import css from "styles/Home.module.css";
 // import user from "src/assets/1.png";
@@ -18,6 +19,7 @@ function Home() {
   const profile = useSelector((state) => state.user.profile);
   const auth = useSelector((state) => state.auth);
   const history = useSelector((state) => state.history);
+  const isLoading = useSelector((state) => state.history.isLoading);
   const [query, setQuery] = useState({ page: 1, limit: 10, filter: "WEEK" });
 
   const currency = (price) => {
@@ -32,7 +34,7 @@ function Home() {
     dispatch(historyAction.historyThunk(auth.userData.token, query));
   }, [query]);
 
-  console.log(history);
+  // console.log(history);
   return (
     <>
       <Header title={"HOME"} />
@@ -164,7 +166,9 @@ function Home() {
                   {/* {history?.history?.map((data, index) => {
                     return <CardHistory data={data} key={index} />;
                   })} */}
-                  {history?.history.length < 1 ? (
+                  {isLoading ? (
+                    <Loading />
+                  ) : history?.history.length < 1 ? (
                     <p>There`s not transaction yet</p>
                   ) : (
                     history?.history?.map((data, index) => {

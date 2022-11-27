@@ -15,9 +15,11 @@ function Sidebar() {
   const dispatch = useDispatch();
   const router = useRouter();
   const errorMsg = useSelector((state) => state.auth.logoutMsg);
+  const auth = useSelector((state) => state.auth);
   const [show, setShow] = useState(false);
-  // const [openModal, setOpenModal] = useState(false);
-  // const handleModal = () => setOpenModal(!openModal);
+  const [openModal, setOpenModal] = useState(false);
+  const [isLoading, setisLoading] = useState(false);
+  const handleModal = () => setOpenModal(!openModal);
   // console.log(auth);
 
   const logoutHandler = () => {
@@ -75,6 +77,10 @@ function Sidebar() {
   const toggleHandler = () => {
     setShow(!show);
   };
+
+  useEffect(() => {
+    if (auth.isLoading) setisLoading(true);
+  }, [auth]);
 
   return (
     <>
@@ -158,7 +164,7 @@ function Sidebar() {
                 Profile
               </p>
             </div>
-            <div className={Styles.logout} onClick={logoutHandler}>
+            <div className={Styles.logout} onClick={handleModal}>
               <i className="fa-solid fa-arrow-right-from-bracket"></i>
               <p className={Styles["close"]}>Logout</p>
             </div>
@@ -222,11 +228,36 @@ function Sidebar() {
           ></i>
           <p className={`${Styles.textDasboard} ${Styles.close}`}>Profile</p>
         </div>
-        <div className={Styles.logout} onClick={logoutHandler}>
+        <div className={Styles.logout} onClick={handleModal}>
           <i className="fa-solid fa-arrow-right-from-bracket"></i>
           <p className={Styles["close"]}>Logout</p>
         </div>
       </div>
+      {openModal && (
+        <div className={Styles.modal}>
+          <div className={Styles["modal-container"]}>
+            <div className={Styles["title-modal"]}>
+              <p>Logout</p>
+            </div>
+            <div className={Styles.ask}>
+              <p>Are you sure want to logout?</p>
+            </div>
+            <div className={Styles["container-btn"]}>
+              <div
+                className={`${Styles.btn} ${
+                  isLoading ? Styles.loading : undefined
+                }`}
+                onClick={logoutHandler}
+              >
+                <p>YES</p>
+              </div>
+              <div className={Styles.btn} onClick={handleModal}>
+                <p>NO</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {/* <Modal show={openModal} onHide={handleModal}>
         <Modal.Header closeButton>
           <Modal.Title>Spectrum</Modal.Title>
