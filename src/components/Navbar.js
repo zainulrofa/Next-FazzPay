@@ -72,7 +72,9 @@ function Navbar({ children, history }) {
               <p
                 className={css["navbar-name"]}
               >{`${profile.firstName} ${profile.lastName}`}</p>
-              <p className={css["navbar-phone"]}>{`+62${profile.noTelp}`}</p>
+              <p className={css["navbar-phone"]}>
+                {!profile.noTelp ? "+62-xx-xxxx-xxxx" : `+62${profile.noTelp}`}
+              </p>
             </div>
           </div>
           <i
