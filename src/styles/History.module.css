@@ -238,6 +238,8 @@
   }
   
   .bottom-right {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     background-color: white;
     border-radius: 25px;
@@ -254,6 +256,13 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+  }
+
+  .right-top .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
   }
   
   .transaction {
@@ -361,17 +370,17 @@
   }
 
   .btn-container {
-    margin-top: 1rem;
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
-    margin: 0;
+    margin-top: auto;
+    padding-top: 1rem;
   }
 
   .btn-container button {
     border: none;
     background-color: var(--primary);
-    padding: .2rem 0.5rem;
+    padding: .2rem .8rem;
     cursor: pointer;
     border-radius: .5rem;
   }
@@ -399,6 +408,10 @@
       justify-content: center;
       gap: 1rem;
     }
+
+    .transaction {
+      padding-left: 1rem;
+    }
   }
   
   @media screen and (max-width: 567px) {
@@ -421,7 +434,7 @@
       /* width: 100%; */
       background-color: white;
       border-radius: 25px;
-      padding: 25px;
+      padding: 1rem .5rem;
       box-shadow: 0px 4px 20px 0px #0000000d;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
@@ -430,6 +443,6 @@
     }
   
     .filter {
-      width: 14rem;
+      max-width: 1rem;
     }
   }

@@ -12,8 +12,8 @@ import css from "styles/History.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 
-import Recieve from "components/RecieveHistory";
-import Paid from "components/PaidHistory";
+// import Recieve from "components/RecieveHistory";
+// import Paid from "components/PaidHistory";
 import historyAction from "src/redux/actions/history";
 import CardHistory from "components/CardHistory";
 
@@ -35,7 +35,9 @@ function Home() {
   const isLoading = useSelector((state) => state.history.isLoading);
 
   useEffect(() => {
-    router.push(`/dashboard/history?page=${query.page}filter=${query.filter}`);
+    router.push(
+      `/dashboard/history?page=${query.page}&limit=${query.limit}&filter=${query.filter}`
+    );
     dispatch(historyAction.historyThunk(auth.userData.token, query));
     if (history?.history.length > 0) setDataFound(true);
   }, [query]);
