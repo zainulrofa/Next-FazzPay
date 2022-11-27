@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import authAction from "src/redux/actions/auth";
 import Styles from "styles/Sidebar.module.css";
+import Modal from "components/ModalTopUp";
+import userAction from "src/redux/actions/user";
 
 function Sidebar() {
   const [selectDashboard, setDashboard] = useState(false);
@@ -14,10 +16,11 @@ function Sidebar() {
   const [selectProfile, setProfile] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
-  const errorMsg = useSelector((state) => state.auth.logoutMsg);
+  const logoutMsg = useSelector((state) => state.auth.logoutMsg);
   const auth = useSelector((state) => state.auth);
   const [show, setShow] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [isLoading, setisLoading] = useState(false);
   const handleModal = () => setOpenModal(!openModal);
   // console.log(auth);
@@ -25,7 +28,7 @@ function Sidebar() {
   const logoutHandler = () => {
     dispatch(
       authAction.logoutThunk(() => {
-        toast.success(`${errorMsg}`);
+        toast.success(`${logoutMsg}`);
         router.push("/login");
       })
     );
@@ -64,6 +67,7 @@ function Sidebar() {
     setTransfer(false);
     setTopUp(true);
     setProfile(false);
+    setShowModal(!showModal);
   };
   const profileHandler = (e) => {
     e.preventDefault();
@@ -79,6 +83,9 @@ function Sidebar() {
   };
 
   useEffect(() => {
+    dispatch(
+      userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
+    );
     if (auth.isLoading) setisLoading(true);
   }, [auth]);
 
@@ -90,6 +97,11 @@ function Sidebar() {
       >
         <i className="fa-solid fa-bars"></i>
       </div>
+      <Modal
+        open={showModal}
+        setOpen={setShowModal}
+        token={auth.userData.token}
+      />
       {show && (
         <>
           <div className={Styles["bg-modal"]}></div>
