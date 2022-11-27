@@ -1,0 +1,206 @@
+/* personal info */
+
+.main-container {
+  background-color: #E5E5E5;
+  display: flex;
+  gap: 3rem;
+  padding-top: 3rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  padding-bottom: 3rem;
+}
+
+.main-container .box-main {
+  background-color: white;
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  box-shadow: 0 4px 20px #0000000d;
+  border-radius: 20px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.title-small p {
+  color: #7A7886;
+}
+
+.item-container {
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 4px 20px #0000000d;
+  border-radius: 1rem;
+}
+
+.item-container.phone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-container.phone a {
+  text-decoration: none;
+  color: #6379f4;
+}
+
+.info-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* change password */
+
+.form-password {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
+  padding: 5rem 7rem 5rem 7rem;
+}
+
+.form-password input {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-bottom: 1.5px solid #3a3d424d;
+  background-color: transparent;
+  font-weight: 500;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.form-password input::placeholder {
+  color: #3a3d424d;
+}
+
+.form-password input:focus {
+  outline: none;
+}
+
+.form-password input:not(:placeholder-shown) {
+  border-bottom: 2px solid #6379f4;
+}
+
+.form-password button {
+  margin-top: 1rem;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  color: white;
+  background-color: #6379f4;
+  font-weight: 700;
+  border-radius: 0.75rem;
+}
+
+.form-password button:hover {
+  background-color: #6379f4;
+  border-color: #6379f4;
+  opacity: 0.9;
+}
+
+.form-password button:disabled {
+  color: #3a3d42;
+  background-color: #3a3d424d;
+}
+
+.form-password div {
+  position: relative;
+}
+
+.form-password i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #3a3d424d;
+}
+
+.form-password i.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.form-password i.toggle-password:hover {
+  color: #6379f4;
+}
+
+.password-notif {
+  color: red;
+}
+
+.password-notif.hide {
+  display: initial;
+}
+
+.password-notif.show {
+  display: none;
+}
+
+/* manage phone */
+.phone-container {
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 0 4px 20px #0000000d;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phone-container i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.phone-container i:hover {
+  opacity: 0.7;
+}
+
+.img-center {
+  display: flex;
+  justify-content: center;
+}
+
+.img-modal {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 20px #0000000d;
+}
+
+@media (max-width: 576px) {
+  .main-container {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-password {
+    padding: 0;
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  .title-small {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {}
+
+@media (max-width: 992px) {
+  .link-container {
+    width: 50%;
+  }
+}

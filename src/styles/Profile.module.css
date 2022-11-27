@@ -1,0 +1,225 @@
+.container {
+    background-color: #E5E5E5;
+}
+
+.main-content {
+    padding: 2rem 2.2rem;
+}
+
+.main-content .profile-content {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0px 4px 20px 0px #0000000D;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+    text-align: -webkit-center;
+}
+
+.main-content .profile-content .profile-detail .photo {
+    position: relative;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.main-content .profile-content .edit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    padding: .5rem;
+}
+
+.main-content .profile-content .edit:hover {
+    user-select: none;
+    cursor: pointer;
+}
+
+.main-content .profile-content .edit i {
+    color: #7A7886;
+}
+
+.main-content .profile-content .edit p {
+    margin: 0;
+    color: #7A7886;
+}
+
+.main-content .profile-content .name p {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4D4B57;
+}
+
+.main-content .profile-content .phone p {
+    font-size: 1rem;
+    color: #7A7886;
+}
+
+.main-content .profile-content .profile-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.main-content .profile-content .profile-btn button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-radius: .5rem;
+    background: transparent;
+    background-color: #E5E8ED;
+    padding: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4D4B57;
+    text-align: start;
+}
+
+.main-content .profile-content .profile-btn button:hover {
+    background-color: #6379F4;
+    color: white;
+}
+
+.main-content .profile-content .profile-btn button:active {
+    position: relative;
+    top: .5rem;
+}
+
+.main-content .profile-content .profile-btn button p {
+    margin: 0;
+}
+
+.main-content .profile-content .profile-btn button i {
+    padding-left: 10rem;
+    color: #4D4B57;
+    text-align: end;
+}
+
+.modal {
+    width: 100%;
+    height: 100vw;
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-container {
+    justify-content: space-between;
+    user-select: none;
+    display: flex;
+    font-weight: 700;
+    font-size: 25px;
+    flex-direction: column;
+    background-color: white;
+    width: 40%;
+    top: 10%;
+    left: 30%;
+    min-height: 20rem;
+    border-radius: 25px;
+    padding: 2rem;
+    position: absolute;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+  }
+
+  .title-modal p {
+    text-align: start;
+  }
+
+  .ask {
+    font-weight: 400;
+    font-size: 40px;
+    margin: auto;
+    width: 70%;
+    text-align: center;
+  }
+  
+  .container-btn {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+  }
+  
+  .btn:active {
+    opacity: 0.8;
+  }
+  
+  .btn {
+    cursor: pointer;
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-size: 25px;
+    width: 10rem;
+    border-radius: 25px;
+    padding: 1rem;
+    background-color: #6379f4;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+  }
+
+  .btn p {
+    margin: 0;
+  }
+  
+  .loading {
+    opacity: 0.8 !important;
+  }
+
+@media screen and (max-width:567px) {
+    .main-content {
+        padding: 2rem 0;
+    }
+
+    .main-content .profile-content {
+        display: block;
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+
+    .main-content .profile-content .profile-detail .photo {
+        height: 6rem;
+        width: 6rem;
+    }
+
+    .main-content .profile-content .edit {
+        justify-content: flex-end;
+    }
+
+    .main-content .profile-content .profile-detail .top-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .main-content .profile-content {
+        margin-top: 2rem;
+    }
+
+    .main-content .profile-content .profile-btn {
+        padding: 1rem 0;
+    }
+
+    .main-content .profile-content .profile-btn button {
+        gap: 1rem;
+    }
+
+    .main-content .profile-content .profile-btn button i {
+        padding-left: 0;
+    }
+}

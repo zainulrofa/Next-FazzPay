@@ -1,0 +1,312 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  grid-gap: 1rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.search {
+  background-color: #0000000d;
+  width: 100%;
+  height: 3rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.5rem;
+  box-shadow: 0 4px 20px #0000000d;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.contact-item {
+  /* margin-top: 1rem; */
+  display: flex;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 20px #0000000d;
+  border-radius: 10px;
+  display: flex;
+  padding: 0.5rem;
+  grid-gap: 1rem;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  background-color: #0000000d;
+}
+
+.contact-item .img {
+  align-items: center;
+  height: 4rem;
+  width: 4rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px #0000000d;
+}
+
+.name {
+  font-weight: 700;
+  margin: 0;
+}
+
+.phone {
+  color: #bababa;
+  margin: 0;
+}
+
+.pagination-buttons {
+  margin-top: auto;
+  align-self: end;
+  display: flex;
+  grid-gap: 1rem;
+}
+
+.pagination-buttons button {
+  font-weight: 700;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: #6379f4;
+  color: white;
+  line-height: 1rem;
+}
+
+.pagination-buttons button:hover {
+  opacity: 0.7;
+}
+
+.pagination-buttons button:disabled {
+  background-color: #3a3d424d;
+  opacity: 1;
+}
+
+/* transfer amount */
+.form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form .text {
+  margin-top: 1rem;
+  align-self: flex-start;
+  width: 50%;
+}
+
+.input-amount {
+  height: 4rem;
+  width: 100%;
+  border: none;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.input-amount:focus {
+  outline: none;
+}
+
+.input-amount::-webkit-outer-spin-button,
+.input-amount::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.input-amount[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.form .balance {
+  font-weight: 700;
+}
+
+.input-notes {
+  height: 2rem;
+  width: 50%;
+  border: none;
+  border-bottom: 1.5px solid #3a3d424d;
+}
+
+.input-notes:focus {
+  outline: none;
+  border-bottom: 1.5px solid var(--primary);
+}
+
+button.confirm {
+  background-color: var(--primary);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  align-self: flex-end;
+}
+
+/* confirmation */
+
+.item-container {
+  width: 100%;
+  background-color: white;
+  padding: 0.5rem;
+  box-shadow: 0 4px 20px #0000000d;
+  border-radius: 10px;
+  height: 4.5em;
+}
+
+.item-container.phone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-container.phone a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.info-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-gap: 1rem;
+}
+
+.confirmation-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.details-info {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+/* status */
+.main-status {
+  background-color: #FAFCFF;
+  display: flex;
+  /* flex-direction: column; */
+  grid-gap: 1rem;
+  /* align-items: center; */
+  /* height: 100%; */
+  padding-top: 1rem;
+  padding-left: 8rem;
+  padding-right: 23rem;
+  padding-bottom: 1rem;
+}
+
+.status-info {
+  background-color: white;
+  box-shadow: 0px 4px 20px 0px #0000000D;
+  border-radius: 25px;
+  padding: 0 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.status {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  line-height: 2rem;
+}
+
+.status.success {
+  background-color: green;
+}
+
+.status.failed {
+  background-color: red;
+}
+
+.status-text {
+  font-weight: 700;
+}
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.receiver {
+  width: 100%;
+}
+
+.buttons {
+  padding-top: 5em;
+  margin-top: auto;
+  justify-self: end;
+  align-self: flex-end;
+  display: flex;
+  grid-gap: 1rem;
+}
+
+.download .icon-fontawesome {
+  padding-right: .8rem;
+}
+
+.buttons button {
+  font-weight: 700;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.buttons .download {
+  background-color: var(--shade);
+  color: var(--primary);
+}
+
+.buttons .home {
+  background-color: var(--primary);
+  color: white;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}

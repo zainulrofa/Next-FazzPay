@@ -152,6 +152,11 @@
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
   }
+
+  .btn p {
+    margin: 0;
+  }
+  
   
   .loading {
     opacity: 0.8 !important;
@@ -225,6 +230,6 @@
     }
   
     .toggle {
-      display: block;
+      display: none;
     }
   }
