@@ -20,7 +20,8 @@ const topUpThunk = (body, token, cbSuccess, cbDenied) => {
       dispatch(topUpPending());
       const result = await topUp(body, token);
       dispatch(topUpFulfilled(result.data));
-      typeof cbSuccess === "function" && cbSuccess();
+      typeof cbSuccess === "function" &&
+        cbSuccess(result.data.data.redirectUrl);
     } catch (error) {
       dispatch(topUpRejected(error));
       typeof cbDenied === "function" && cbDenied(error.response.data.msg);
