@@ -26,7 +26,7 @@ function Home() {
   const [query, setQuery] = useState({
     page: 1,
     limit: 4,
-    filter: "YEAR",
+    filter: "MONTH",
   });
   const [filter, setFilter] = useState(false);
   const [filterSelect, setfilterSelect] = useState(null);
@@ -35,7 +35,7 @@ function Home() {
   const isLoading = useSelector((state) => state.history.isLoading);
 
   useEffect(() => {
-    // router.push(`/history?page=${query.page}filter=${query.filter}`);
+    router.push(`/dashboard/history?page=${query.page}filter=${query.filter}`);
     dispatch(historyAction.historyThunk(auth.userData.token, query));
     if (history?.history.length > 0) setDataFound(true);
   }, [query]);
