@@ -29,7 +29,7 @@ export default function Login() {
     if (!auth.userData.pin)
       return toast.success(`Login Successfully! Please create your pin!`);
     if (auth.userData.pin)
-      return toast.success(`Login Successfully!Welcome ${body.email}`);
+      return toast.success(`Login Successfully! Welcome ${body.email}`);
   };
 
   const loginError = () => toast.error(`Login Failed: ${auth.error}`);
