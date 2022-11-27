@@ -17,6 +17,7 @@ export default function Register() {
   // const [unouthorized, setUnouthorized] = useState(false);
   const [body, setBody] = useState({});
   const auth = useSelector((state) => state.auth);
+  const isLoading = useSelector((state) => state.auth.isLoading);
 
   const registerSuccess = () => {
     toast.success("Congrats! Register Successfully, Please Check Your Email!");
@@ -36,7 +37,7 @@ export default function Register() {
 
   const checkEmptyForm = (body) => {
     if (
-      auth.isLoading ||
+      isLoading ||
       !body.email ||
       !body.password ||
       !body.firstName ||
@@ -53,6 +54,7 @@ export default function Register() {
   const changehandler = (e) => {
     setBody({ ...body, [e.target.name]: e.target.value });
   };
+
   useEffect(() => {
     checkEmptyForm(body);
   }, [body]);
