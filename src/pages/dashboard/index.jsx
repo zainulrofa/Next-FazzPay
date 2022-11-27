@@ -5,6 +5,7 @@ import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
 import Footer from "components/Footer";
 import Loading from "components/Loading";
+import Modal from "components/ModalTopUp";
 import CardHistory from "components/CardHistory";
 import css from "styles/Home.module.css";
 // import user from "src/assets/1.png";
@@ -12,6 +13,7 @@ import css from "styles/Home.module.css";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import historyAction from "src/redux/actions/history";
+import userAction from "src/redux/actions/user";
 
 function Home() {
   const dispatch = useDispatch();
@@ -20,7 +22,10 @@ function Home() {
   const auth = useSelector((state) => state.auth);
   const history = useSelector((state) => state.history);
   const isLoading = useSelector((state) => state.history.isLoading);
+  const [showModal, setShowModal] = useState(false);
   const [query, setQuery] = useState({ page: 1, limit: 10, filter: "WEEK" });
+
+  const modalHandler = () => setShowModal(!showModal);
 
   const currency = (price) => {
     return (
@@ -31,13 +36,21 @@ function Home() {
     );
   };
   useEffect(() => {
+    dispatch(
+      userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
+    );
     dispatch(historyAction.historyThunk(auth.userData.token, query));
-  }, [query]);
+  }, []);
 
   // console.log(history);
   return (
     <>
-      <Header title={"HOME"} />
+      <Header title={"Dashboard"} />
+      <Modal
+        open={showModal}
+        setOpen={setShowModal}
+        token={auth.userData.token}
+      />
       <Navbar history={history?.history}>
         <div className={css.container}>
           <div className={`col-lg-3 col-md-3 ${css.onMobile}`}>
@@ -56,7 +69,7 @@ function Home() {
                     <i className="fa-sharp fa-solid fa-arrow-up"></i>
                     <p>Transfer</p>
                   </div>
-                  <div className={css.btn}>
+                  <div className={css.btn} onClick={modalHandler}>
                     <i className="fa-solid fa-plus"></i>
                     <p>Top Up</p>
                   </div>
@@ -68,7 +81,7 @@ function Home() {
                   <p>Transfer</p>
                 </div>
                 <div className={css.btn}>
-                  <i className="fa-solid fa-plus"></i>
+                  <i className="fa-solid fa-plus" onClick={modalHandler}></i>
                   <p>Top Up</p>
                 </div>
               </div>

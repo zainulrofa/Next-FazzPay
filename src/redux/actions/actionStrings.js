@@ -13,4 +13,8 @@ export const ACTION_STRING = {
   userEditPassword: "USER_EDIT_PASSWORD",
   userDeleteImage: "USER_DELETE_IMAGE",
   transactionGetHistory: "GET_HISTORY",
+  transactionTopUp: "TOP_UP",
+  pending: "_PENDING",
+  rejected: "_REJECTED",
+  fulfilled: "_FULFILLED",
 };
