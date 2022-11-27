@@ -6,7 +6,7 @@
     display: inline-block;
     position: relative;
     top: 30%;
-    left: 40%;
+    left: 45%;
   }
   @keyframes loader {
     0% { left: -100px }
