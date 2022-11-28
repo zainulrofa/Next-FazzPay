@@ -21,14 +21,10 @@ function Profile() {
   const profile = useSelector((state) => state.user.profile);
   const link = process.env.CLOUDINARY_LINK;
   const inputFileRef = React.createRef();
-  const [display, setDisplay] = useState(`${link}/${profile.image}`);
+  const [display, setDisplay] = useState(null);
 
-  const inputImage = (event) => {
+  const inputImage = () => {
     inputFileRef.current.click();
-    if (event.target.files && event.target.files[0]) {
-      setDisplay(URL.createObjectURL(event.target.files[0]));
-      setImage(event.target.files[0]);
-    }
   };
 
   const toInfo = () => {
@@ -55,6 +51,7 @@ function Profile() {
   };
 
   const editImageHandler = (e) => {
+    setDisplay(URL.createObjectURL(e.target.files[0]));
     const body = new FormData();
     body.append("image", e.target.files[0]);
     console.log(body);
@@ -72,7 +69,7 @@ function Profile() {
 
   return (
     <>
-      <Header title={"HOME"} />
+      <Header title={"Profile"} />
       <main className={css["container"]}>
         <div className="container">
           <div className={`row ${css["main-content"]}`}>
