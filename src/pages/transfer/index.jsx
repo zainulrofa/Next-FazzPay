@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Header from "components/Header";
-import Navbar from "components/Navbar";
-import Sidebar from "components/Sidebar";
-import Footer from "components/Footer";
-import Card from "components/CardUser";
+import Header from "src/pages/Components/Header";
+import Navbar from "src/pages/Components/Navbar";
+import Sidebar from "src/pages/Components/Sidebar";
+import Footer from "src/pages/Components/Footer";
+import Card from "src/pages/Components/CardUser";
 import css from "styles/Transfer.module.css";
 // import user from "src/assets/1.png";
 // import user2 from "src/assets/image.png";

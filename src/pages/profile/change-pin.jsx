@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
-import Header from "components/Navbar";
-import Sidebar from "components/Sidebar";
-import Footer from "src/components/Footer";
+import Header from "src/pages/Components/Navbar";
+import Sidebar from "src/pages/Components/Sidebar";
+import Footer from "src/pages/Components/Footer";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 import styles from "styles/changepin.module.css";

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Header from "components/Header";
-import Navbar from "components/Navbar";
-import Sidebar from "components/Sidebar";
-import Footer from "components/Footer";
+import Header from "src/pages/Components/Header";
+import Navbar from "src/pages/Components/Navbar";
+import Sidebar from "src/pages/Components/Sidebar";
+import Footer from "src/pages/Components/Footer";
 import css from "styles/Ammount.module.css";
 import user from "src/assets/1.png";
 import { useRouter } from "next/router";

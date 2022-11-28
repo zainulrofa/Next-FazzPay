@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
-import Layout from "components/LayoutAuth";
-import PageTitle from "components/Header";
+import Layout from "src/pages/Components/LayoutAuth";
+import PageTitle from "src/pages/Components/Header";
 import styles from "styles/Login.module.css";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";

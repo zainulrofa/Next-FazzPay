@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 // import Image from "next/image";
-import Header from "components/Header";
-import Navbar from "components/Navbar";
-import Sidebar from "components/Sidebar";
-import Footer from "components/Footer";
-import Loading from "components/Loading";
+import Header from "src/pages/Components/Header";
+import Navbar from "src/pages/Components/Navbar";
+import Sidebar from "src/pages/Components/Sidebar";
+import Footer from "src/pages/Components/Footer";
+import Loading from "src/pages/Components/Loading";
 import css from "styles/History.module.css";
 // import user from "src/assets/1.png";
 // import user2 from "src/assets/image.png";
@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 // import Recieve from "components/RecieveHistory";
 // import Paid from "components/PaidHistory";
 import historyAction from "src/redux/actions/history";
-import CardHistory from "components/CardHistory";
+import CardHistory from "src/pages/Components/CardHistory";
 
 function Home() {
   const router = useRouter();

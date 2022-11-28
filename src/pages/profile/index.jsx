@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Header from "components/Navbar";
-import Sidebar from "components/Sidebar";
-import Footer from "components/Footer";
+import Header from "src/pages/Components/Navbar";
+import Sidebar from "src/pages/Components/Sidebar";
+import Footer from "src/pages/Components/Footer";
 import css from "styles/Profile.module.css";
 import Image from "next/image";
 

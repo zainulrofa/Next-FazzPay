@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import authAction from "src/redux/actions/auth";
 import Styles from "styles/Sidebar.module.css";
-import Modal from "components/ModalTopUp";
+import Modal from "src/pages/Components/ModalTopUp";
 import userAction from "src/redux/actions/user";
 
 function Sidebar() {

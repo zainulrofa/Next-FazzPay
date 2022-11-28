@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import React, { Children, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import PageTitle from "components/PageTitle";
+import PageTitle from "src/pages/Components/PageTitle";
 import { getDetailUser } from "src/modules/api/User";
 import css from "styles/Amount.module.css";
-import Navbar from "components/Navbar";
-import Sidebar from "components/SideBar";
-import Footer from "components/Footer";
+import Navbar from "src/pages/Components/Navbar";
+import Sidebar from "src/pages/Components/Sidebar";
+import Footer from "src/pages/Components/Footer";
 import Image from "next/image";
 import defaultImg from "src/assets/avatar.webp";
 import { currency } from "src/modules/helpers/currency";
