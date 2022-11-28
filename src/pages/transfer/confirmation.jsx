@@ -8,7 +8,7 @@ import PageTitle from "src/Components/PageTitle";
 import Sidebar from "src/Components/Sidebar";
 import css from "styles/Confirmation.module.css";
 import imgDefault from "src/assets/avatar.webp";
-import { currency } from "components/modules/helpers/currency";
+import { currency } from "src/modules/helpers/currency";
 import Modal from "src/Components/ModalPin";
 
 function Confirmation() {

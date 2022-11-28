@@ -1,5 +1,5 @@
 import { ACTION_STRING } from "./actionStrings";
-import { topUp } from "components/modules/api/Topup";
+import { topUp } from "src/modules/api/Topup";
 const { transactionTopUp, pending, rejected, fulfilled } = ACTION_STRING;
 
 const topUpPending = () => ({

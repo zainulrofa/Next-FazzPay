@@ -11,7 +11,7 @@ import css from "styles/Transfer.module.css";
 import search from "src/assets/search.png";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllUser } from "components/modules/api/Transfer";
+import { getAllUser } from "src/modules/api/Transfer";
 import transferAction from "src/redux/actions/transfer";
 
 function Home() {

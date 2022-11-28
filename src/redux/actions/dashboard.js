@@ -1,4 +1,4 @@
-import { statisticApi } from "components/modules/api/Dashboard";
+import { statisticApi } from "src/modules/api/Dashboard";
 import { ACTION_STRING } from "./actionStrings";
 
 const { getStatistic, pending, rejected, fulfilled } = ACTION_STRING;

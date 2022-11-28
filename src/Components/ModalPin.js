@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { checkPin } from "components/modules/api/User";
+import { checkPin } from "src/modules/api/User";
 import transferAction from "src/redux/actions/transfer";
 const InputPin = dynamic(import("react-code-input"));
 
