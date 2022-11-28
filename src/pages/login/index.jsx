@@ -27,7 +27,7 @@ export default function Login() {
 
   const loginSussess = () => {
     if (!auth.userData.pin)
-      return toast.success(`Login Successfully! Please create your pin!`);
+      return toast.success(`Login Successfully! Welcome ${body.email}`);
     if (auth.userData.pin)
       return toast.success(`Login Successfully! Welcome ${body.email}`);
   };
