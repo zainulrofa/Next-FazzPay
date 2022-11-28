@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Layout from "src/pages/Components/LayoutAuth";
-import PageTitle from "src/pages/Components/Header";
+import Layout from "src/Components/LayoutAuth";
+import PageTitle from "src/Components/Header";
 import styles from "styles/CreatePin.module.css";
 import dynamic from "next/dynamic";
 import { useDispatch, useSelector } from "react-redux";

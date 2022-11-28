@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import Header from "src/pages/Components/Header";
-import Navbar from "src/pages/Components/Navbar";
-import Sidebar from "src/pages/Components/Sidebar";
-import Footer from "src/pages/Components/Footer";
+import Header from "src/Components/Header";
+import Navbar from "src/Components/Navbar";
+import Sidebar from "src/Components/Sidebar";
+import Footer from "src/Components/Footer";
 import css from "styles/Confirmation.module.css";
 import user from "src/assets/1.png";
 import { useRouter } from "next/router";
 // import { toast } from "react-toastify";
-import Modal from "src/pages/Components/ModalConfirm";
+import Modal from "src/Components/ModalConfirm";
 
 function Home() {
   const [modalOpen, setModalOpen] = useState(false);

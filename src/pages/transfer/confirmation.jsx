@@ -2,14 +2,14 @@ import Image from "next/image";
 
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import Footer from "src/pages/Components/Footer";
-import Navbar from "src/pages/Components/Navbar";
-import PageTitle from "src/pages/Components/PageTitle";
-import Sidebar from "src/pages/Components/Sidebar";
+import Footer from "src/Components/Footer";
+import Navbar from "src/Components/Navbar";
+import PageTitle from "src/Components/PageTitle";
+import Sidebar from "src/Components/Sidebar";
 import css from "styles/Confirmation.module.css";
 import imgDefault from "src/assets/avatar.webp";
 import { currency } from "src/modules/helpers/currency";
-import Modal from "src/pages/Components/ModalPin";
+import Modal from "src/Components/ModalPin";
 
 function Confirmation() {
   const transferData = useSelector((state) => state.transfer.transferData);

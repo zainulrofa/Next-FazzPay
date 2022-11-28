@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import sample from "src/assets/avatar.webp";
 import css from "src/styles/Navbar.module.css";
-import Sidebar from "src/pages/Components/Sidebar";
+import Sidebar from "src/Components/Sidebar";
 import { useSelector } from "react-redux";
 
 function Navbar({ children, history }) {

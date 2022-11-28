@@ -1,11 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import styles from "styles/status.module.css";
-import Sidebar from "src/pages/Components/Sidebar";
+import Sidebar from "src/Components/Sidebar";
 import profile from "src/assets/profile.png";
-import Header from "src/pages/Components/Header";
-import Navbar from "src/pages/Components/Navbar";
-import Footer from "src/pages/Components/Footer";
+import Header from "src/Components/Header";
+import Navbar from "src/Components/Navbar";
+import Footer from "src/Components/Footer";
 import { useRouter } from "next/router";
 
 function Status() {
