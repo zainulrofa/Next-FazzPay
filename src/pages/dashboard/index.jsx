@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { currency as currencyComma } from "src/modules/helpers/currency";
 import Image from "next/image";
 import Header from "components/Header";
 import Navbar from "components/Navbar";
@@ -14,14 +15,26 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import historyAction from "src/redux/actions/history";
 import userAction from "src/redux/actions/user";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+} from "chart.js";
+import dashboardAction from "src/redux/actions/dashboard";
 
 function Home() {
+  ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
   const dispatch = useDispatch();
   const router = useRouter();
   const profile = useSelector((state) => state.user.profile);
   const auth = useSelector((state) => state.auth);
   const history = useSelector((state) => state.history);
   const isLoading = useSelector((state) => state.history.isLoading);
+  const statistic = useSelector((state) => state.dashboard.data);
   const [showModal, setShowModal] = useState(false);
   const [query, setQuery] = useState({ page: 1, limit: 10, filter: "WEEK" });
 
@@ -40,7 +53,71 @@ function Home() {
       userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
     );
     dispatch(historyAction.historyThunk(auth.userData.token, query));
+    dispatch(
+      dashboardAction.statisticThunk(auth.userData.token, auth.userData.id)
+    );
   }, []);
+
+  const incomeData = {
+    label: "Income",
+    data: statistic.listIncome
+      ? [
+          statistic.listIncome[5].total,
+          statistic.listIncome[6].total,
+          statistic.listIncome[0].total,
+          statistic.listIncome[1].total,
+          statistic.listIncome[2].total,
+          statistic.listIncome[3].total,
+          statistic.listIncome[4].total,
+        ]
+      : [],
+    backgroundColor: "#6379F4",
+  };
+
+  const expenseData = {
+    label: "Expense",
+    data: statistic.listExpense
+      ? [
+          statistic.listExpense[5].total,
+          statistic.listExpense[6].total,
+          statistic.listExpense[0].total,
+          statistic.listExpense[1].total,
+          statistic.listExpense[2].total,
+          statistic.listExpense[3].total,
+          statistic.listExpense[4].total,
+        ]
+      : [],
+    backgroundColor: "#9DA6B5",
+  };
+
+  const data = {
+    labels: ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"],
+    datasets: [incomeData, expenseData],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+    },
+    legend: {
+      label: {
+        fontSize: 14,
+        fontFamily: "Nunito Sans",
+      },
+    },
+  };
+  console.log(expenseData);
 
   // console.log(history);
   return (
@@ -105,7 +182,7 @@ function Home() {
                           marginTop: "0.5rem",
                         }}
                       >
-                        Rp2.120.000
+                        {`Rp. ${currencyComma(statistic.totalIncome)}`}
                       </p>
                     </div>
                     <div>
@@ -125,11 +202,11 @@ function Home() {
                           marginTop: "0.5rem",
                         }}
                       >
-                        Rp1.560.000
+                        {`Rp. ${currencyComma(statistic.totalExpense)}`}
                       </p>
                     </div>
                   </div>
-                  <div className={css["left-middle"]}>
+                  {/* <div className={css["left-middle"]}>
                     <p className={css["plus"]}>+Rp65.000</p>
                     <div className={css["static"]}>
                       <div className={css.sat}></div>
@@ -162,7 +239,12 @@ function Home() {
                       <div className={css.fri}></div>
                       <p>Fri</p>
                     </div>
-                  </div>
+                  </div> */}
+                  <Bar
+                    data={data}
+                    options={chartOptions}
+                    className={css["bar"]}
+                  />
                 </aside>
                 <div className={css["bottom-right"]}>
                   <div className={css["right-top"]}>
