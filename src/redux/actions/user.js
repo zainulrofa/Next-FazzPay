@@ -8,6 +8,7 @@ import {
   editPin,
   editProfile,
   getDetailUser,
+  getReceiveUser,
 } from "src/modules/api/User";
 import { ACTION_STRING } from "./actionStrings";
 
@@ -23,6 +24,19 @@ const userDetailRejected = (error) => ({
 });
 const userDetailFulfilled = (data) => ({
   type: ACTION_STRING.userDetail.concat("_", Fulfilled),
+  payload: { data },
+});
+
+const userReceivePending = () => ({
+  type: ACTION_STRING.userReceive.concat("_", Pending),
+});
+
+const userReceiveRejected = (error) => ({
+  type: ACTION_STRING.userReceive.concat("_", Rejected),
+  payload: { error },
+});
+const userReceiveFulfilled = (data) => ({
+  type: ACTION_STRING.userReceive.concat("_", Fulfilled),
   payload: { data },
 });
 
@@ -129,6 +143,19 @@ const getUserDetailThunk = (token, id) => {
   };
 };
 
+const getUserReceiveThunk = (token, id) => {
+  return async (dispatch) => {
+    try {
+      dispatch(userReceivePending());
+      const result = await getReceiveUser(token, id);
+      console.log(result);
+      dispatch(userReceiveFulfilled(result.data));
+    } catch (error) {
+      dispatch(userReceiveRejected(error));
+    }
+  };
+};
+
 const checkPinThunk = (token, id) => {
   return async (dispatch) => {
     try {
@@ -141,14 +168,16 @@ const checkPinThunk = (token, id) => {
   };
 };
 
-const editProfileThunk = (token, id, body) => {
+const editProfileThunk = (token, id, body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(editProfilePending());
       const result = await editProfile(token, id, body);
       dispatch(editProfileFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(editProfileRejected(error));
+      typeof cbDenied === "function" && cbDenied();
     }
   };
 };
@@ -221,6 +250,7 @@ const deleteImageThunk = (token, id, body) => {
 
 const userAction = {
   getUserDetailThunk,
+  getUserReceiveThunk,
   checkPinThunk,
   editProfileThunk,
   editPhoneThunk,
