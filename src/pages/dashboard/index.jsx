@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { currency as currencyComma } from "src/modules/helpers/currency";
+import { currency as currencyComma } from "components/modules/helpers/currency";
 import Image from "next/image";
 import Header from "src/Components/Header";
 import Navbar from "src/Components/Navbar";

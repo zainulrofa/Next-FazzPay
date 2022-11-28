@@ -1,4 +1,4 @@
-import { transfer } from "src/modules/api/transfer";
+import { transfer } from "components/modules/api/Transfer";
 import { ACTION_STRING } from "./actionStrings";
 
 const transferPending = () => {
