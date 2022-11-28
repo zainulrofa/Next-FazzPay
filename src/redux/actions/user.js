@@ -193,14 +193,16 @@ const editPinThunk = (token, id, body, cbSuccess, cbDenied) => {
   };
 };
 
-const editPasswordThunk = (token, id, body) => {
+const editPasswordThunk = (token, id, body, cbSuccess, cbDenied) => {
   return async (dispatch) => {
     try {
       dispatch(editPasswordPending());
       const result = await editPassword(token, id, body);
       dispatch(editPasswordFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(editPasswordRejected(error));
+      typeof cbDenied === "function" && cbDenied();
     }
   };
 };
