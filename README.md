@@ -84,13 +84,13 @@ You may also see any lint errors in the console.
 ## Screenshots
 
 <div align="center">
-<img width="500" src="https://raw.githubusercontent.com/zainulrofa/Next-FazzPay/src/assets/history.png" alt="Landing page">
+<img width="500" src="https://raw.githubusercontent.com/zainulrofa/Next-FazzPay/main/src/assets/landing-page.PNG" alt="Landing page">
 
-<img width="500" src="src/assets/login.png" alt="Login page">
+<img width="500" src="https://raw.githubusercontent.com/zainulrofa/Next-FazzPay/main/src/assets/login.PNG" alt="Login page">
 
-<img width="500" src="src/assets/dashboard.png" alt="Dashboard">
+<img width="500" src="https://raw.githubusercontent.com/zainulrofa/Next-FazzPay/main/src/assets/dashboard.PNG" alt="Dashboard">
 
-<img width="500" src="src/assets/history.png" alt="Transfer history">
+<img width="500" src="https://raw.githubusercontent.com/zainulrofa/Next-FazzPay/main/src/assets/history.PNG" alt="Transfer history">
 
-<img width="500" src="src/assets/profil-page.png" alt="Profile">
+<img width="500" src="https://raw.githubusercontent.com/zainulrofa/Next-FazzPay/main/src/assets/profil-page.PNG" alt="Profile">
 </div>
