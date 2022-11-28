@@ -9,7 +9,7 @@ import {
   editProfile,
   getDetailUser,
   getReceiveUser,
-} from "src/modules/api/User";
+} from "src/modules/api/user";
 import { ACTION_STRING } from "./actionStrings";
 
 const { Pending, Rejected, Fulfilled } = ActionType;

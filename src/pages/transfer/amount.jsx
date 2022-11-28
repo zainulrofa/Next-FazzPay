@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { Children, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PageTitle from "src/Components/PageTitle";
-import { getDetailUser } from "src/modules/api/User";
+import { getDetailUser } from "src/modules/api/user";
 import css from "styles/Amount.module.css";
 import Navbar from "src/Components/Navbar";
 import Sidebar from "src/Components/Sidebar";
