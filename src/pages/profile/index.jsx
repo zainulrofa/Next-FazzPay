@@ -21,9 +21,14 @@ function Profile() {
   const profile = useSelector((state) => state.user.profile);
   const link = process.env.CLOUDINARY_LINK;
   const inputFileRef = React.createRef();
+  const [display, setDisplay] = useState(`${link}/${profile.image}`);
 
-  const inputImage = () => {
+  const inputImage = (event) => {
     inputFileRef.current.click();
+    if (event.target.files && event.target.files[0]) {
+      setDisplay(URL.createObjectURL(event.target.files[0]));
+      setImage(event.target.files[0]);
+    }
   };
 
   const toInfo = () => {
@@ -52,6 +57,7 @@ function Profile() {
   const editImageHandler = (e) => {
     const body = new FormData();
     body.append("image", e.target.files[0]);
+    console.log(body);
 
     dispatch(
       userAction.editImageThunk(auth.userData.token, auth.userData.id, body)
@@ -80,9 +86,7 @@ function Profile() {
                     <div className={css["photo"]}>
                       <Image
                         alt="profile"
-                        src={
-                          !profile.image ? sample : `${link}/${profile.image}`
-                        }
+                        src={display || `${link}/${profile.image}` || sample}
                         placeholder="blur"
                         blurDataURL={"./assets/avatar.jpg"}
                         onError={() => "./assets/avatar.jpg"}
