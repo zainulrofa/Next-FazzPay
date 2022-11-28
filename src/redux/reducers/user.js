@@ -15,12 +15,22 @@ const initialState = {
     balance: null,
   },
   msgWrongPass: null,
+
+  profileTarget: {
+    firstName: null,
+    lastName: null,
+    email: null,
+    image: null,
+    noTelp: null,
+    balance: null,
+  },
 };
 
 const userReducer = (prevState = initialState, { type, payload }) => {
   const { Pending, Rejected, Fulfilled } = ActionType;
   const {
     userDetail,
+    userReceive,
     userCheckPin,
     userEditProfile,
     userEditPhone,
@@ -52,6 +62,38 @@ const userReducer = (prevState = initialState, { type, payload }) => {
         isFulfilled: true,
         isLoading: false,
         profile: {
+          firstName: payload.data.data.firstName,
+          lastName: payload.data.data.lastName,
+          email: payload.data.data.email,
+          image: payload.data.data.image,
+          noTelp: payload.data.data.noTelp,
+          balance: payload.data.data.balance,
+        },
+      };
+
+    case userReceive.concat("_", Pending):
+      return {
+        ...prevState,
+        isLoading: true,
+        isError: false,
+        isFulfilled: false,
+      };
+    case userReceive.concat("_", Rejected):
+      return {
+        ...prevState,
+        isError: true,
+        isLoading: false,
+        isFulfilled: false,
+        error: payload.error.message,
+      };
+    case userReceive.concat("_", Fulfilled):
+      console.log(payload);
+      return {
+        ...prevState,
+        isError: false,
+        isFulfilled: true,
+        isLoading: false,
+        profileTarget: {
           firstName: payload.data.data.firstName,
           lastName: payload.data.data.lastName,
           email: payload.data.data.email,
