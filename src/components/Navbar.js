@@ -77,8 +77,8 @@ function Navbar({ children, history }) {
               </p>
             </div>
           </div>
-          <i
-            className="fa-regular fa-bell"
+          <div
+            className={css["bell-notif"]}
             onClick={notifHandler}
             style={{
               fontSize: "1.6rem",
@@ -86,7 +86,13 @@ function Navbar({ children, history }) {
               marginLeft: "1rem",
               cursor: "pointer",
             }}
-          ></i>
+          >
+            {!show ? (
+              <i className="fa-regular fa-bell"></i>
+            ) : (
+              <i class="fa-solid fa-bell" style={{ color: "#6379F4" }}></i>
+            )}
+          </div>
         </div>
       </div>
       {show && (
