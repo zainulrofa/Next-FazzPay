@@ -95,7 +95,11 @@ function Sidebar() {
         className={`${Styles["toggle"]} ${Styles["close-toggle"]}`}
         onClick={toggleHandler}
       >
-        <i className="fa-solid fa-bars"></i>
+        {!show ? (
+          <i className="fa-solid fa-bars"></i>
+        ) : (
+          <i class="fa-solid fa-xmark"></i>
+        )}
       </div>
       <Modal
         open={showModal}
@@ -263,7 +267,7 @@ function Sidebar() {
               >
                 <p>YES</p>
               </div>
-              <div className={Styles.btn} onClick={handleModal}>
+              <div className={Styles["btn-close"]} onClick={handleModal}>
                 <p>NO</p>
               </div>
             </div>
