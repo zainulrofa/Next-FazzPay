@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -6,15 +6,38 @@ import css from "styles/Changepwd.module.css";
 import Sidebar from "components/Sidebar";
 import Footer from "components/Footer";
 import Header from "components/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import userAction from "src/redux/actions/user";
+import { toast } from "react-toastify";
 
 function Changepassword() {
-  // const router = useRouter();
+  const router = useRouter();
+  const dispatch = useDispatch();
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordShown1, setPasswordShown1] = useState(false);
   const [passwordShown2, setPasswordShown2] = useState(false);
   const [similarity1, setSimilarity1] = useState(false);
   const [similarity2, setSimilarity2] = useState(false);
-  // const [value, setValue] = useState(false);
+  const [emptyForm, setEmptyForm] = useState(true);
+  const [body, setBody] = useState({});
+  const [value, setValue] = useState(false);
+  const userData = useSelector((state) => state.auth.userData);
+  const errorMsg = useSelector((state) => state.user.msgWrongPass);
+
+  const checkEmptyForm = (body) => {
+    if (!body.oldPassword || !body.newPassword || !body.confirmPassword)
+      return setEmptyForm(true);
+    body.oldPassword &&
+      body.newPassword &&
+      body.confirmPassword &&
+      setEmptyForm(false);
+  };
+
+  const changeHandler = (e) => {
+    setBody({ ...body, [e.target.name]: e.target.value });
+    if (e.target.value) setValue(true);
+    else setValue(false);
+  };
 
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
@@ -25,6 +48,53 @@ function Changepassword() {
   const togglePassword2 = () => {
     setPasswordShown2(!passwordShown2);
   };
+
+  const editPasswordSuccess = () => {
+    toast.success("Congrats! your password updated successfully!");
+    router.push("/profile");
+  };
+  // console.log(errorMsg);
+  const editPassError = () => {
+    toast.error(`${errorMsg}`);
+  };
+
+  const editPassword = (e) => {
+    e.preventDefault();
+    const body = {
+      oldPassword: e.target.oldPassword.value,
+      newPassword: e.target.newPassword.value,
+      confirmPassword: e.target.confirmPassword.value,
+    };
+
+    if (
+      e.target.newPassword.value !== e.target.confirmPassword.value ||
+      e.target.oldPassword.value === e.target.newPassword.value
+    ) {
+      if (e.target.newPassword.value !== e.target.confirmPassword.value)
+        return setSimilarity2(true);
+      if (e.target.oldPassword.value === e.target.newPassword.value)
+        return setSimilarity1(true);
+    }
+
+    dispatch(
+      userAction.editPasswordThunk(
+        userData.token,
+        userData.id,
+        body,
+        () => {
+          toast.success("Congrats! your password updated successfully!");
+          router.push("/profile");
+        },
+        editPassError
+      )
+    );
+  };
+
+  useEffect(() => {
+    checkEmptyForm(body);
+  }, [body]);
+
+  console.log(body);
 
   return (
     <>
@@ -44,15 +114,20 @@ function Changepassword() {
                 password twice.
               </p>
             </div>
-            <form className={css["form-password"]}>
+            <form className={css["form-password"]} onSubmit={editPassword}>
               <div className={css["password"]}>
-                <i className="bi bi-lock"></i>
+                {emptyForm ? (
+                  <i className="fa-solid fa-lock"></i>
+                ) : (
+                  <i className={`fa-solid fa-lock ${css.blue}`}></i>
+                )}
                 <input
                   type={passwordShown ? "text" : "password"}
-                  name="password"
+                  name="oldPassword"
                   placeholder="Enter your old password"
                   required
                   onClick={() => setSimilarity1(false)}
+                  onChange={changeHandler}
                 ></input>
                 <i
                   className={`bi ${passwordShown ? `bi-eye-slash` : `bi-eye`} 
@@ -61,13 +136,18 @@ function Changepassword() {
                 ></i>
               </div>
               <div className={css["password"]}>
-                <i className="bi bi-lock"></i>
+                {emptyForm ? (
+                  <i className="fa-solid fa-lock"></i>
+                ) : (
+                  <i className={`fa-solid fa-lock ${css.blue}`}></i>
+                )}
                 <input
                   type={passwordShown1 ? "text" : "password"}
-                  name="password1"
+                  name="newPassword"
                   placeholder="Enter your new password"
                   required
                   onClick={() => setSimilarity2(false)}
+                  onChange={changeHandler}
                 ></input>
                 <i
                   className={`bi ${passwordShown1 ? `bi-eye-slash` : `bi-eye`} 
@@ -76,13 +156,18 @@ function Changepassword() {
                 ></i>
               </div>
               <div className={css["password"]}>
-                <i className="bi bi-lock"></i>
+                {emptyForm ? (
+                  <i className="fa-solid fa-lock"></i>
+                ) : (
+                  <i className={`fa-solid fa-lock ${css.blue}`}></i>
+                )}
                 <input
                   type={passwordShown2 ? "text" : "password"}
-                  name="password2"
+                  name="confirmPassword"
                   placeholder="Re-enter your password"
                   required
                   onClick={() => setSimilarity2(false)}
+                  onChange={changeHandler}
                 ></input>
                 <i
                   className={`bi ${passwordShown2 ? `bi-eye-slash` : `bi-eye`} 
@@ -104,9 +189,11 @@ function Changepassword() {
               >
                 Retyped password didn&apos;t match!
               </p>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
+              <div className={css["edit-btn"]}>
+                <button type="submit" disabled={emptyForm}>
+                  Change Password
+                </button>
+              </div>
             </form>
           </div>
         </div>
