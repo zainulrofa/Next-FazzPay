@@ -1,0 +1,71 @@
+.modal {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .modal-content {
+    width: 600px;
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .modal-header,
+  .modal-footer {
+    padding: 10px;
+  }
+  
+  .modal-title {
+    margin: 0px;
+    font-size: 35px;
+  }
+  
+  .modal-body {
+    padding: 0px;
+    font-size: 30px;
+  }
+  
+  .modal-footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  
+  .confirm,
+  .cancel {
+    width: 130px;
+    height: 60px;
+  
+    font-size: 25px;
+    font-weight: 700;
+    border-radius: 20px;
+  }
+  .confirm {
+    background-color: var(--primary);
+    color: var(--secondary);
+  }
+  .confirm:active {
+    background-color: #6a4029;
+    color: #ffffff;
+  }
+  .input-amount {
+    width: 80%;
+    padding: 1rem;
+    border-radius: 1rem;
+    outline: none;
+    font-size: 1.25rem;
+  }
