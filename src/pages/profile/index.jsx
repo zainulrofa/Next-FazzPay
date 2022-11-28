@@ -156,7 +156,7 @@ function Profile() {
               <div className={`${css.btn}`} onClick={logoutHandler}>
                 <p>YES</p>
               </div>
-              <div className={css.btn} onClick={handleModal}>
+              <div className={css["btn-close"]} onClick={handleModal}>
                 <p>NO</p>
               </div>
             </div>
