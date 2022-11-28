@@ -59,7 +59,7 @@ function Sidebar() {
     setTransfer(true);
     setTopUp(false);
     setProfile(false);
-    router.push("/transfer/:username");
+    router.push("/transfer");
   };
   const topupHandler = (e) => {
     e.preventDefault();
