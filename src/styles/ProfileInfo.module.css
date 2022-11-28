@@ -47,6 +47,19 @@
     margin: 0;
 }
 
+.profile-info form .save-btn {
+    padding-top: 1rem;
+}
+
+.profile-info form .save-btn button {
+    border: none;
+    background-color: #6379F4;
+    color: white;
+    padding: .5rem 1rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+
 .profile-info form .input-bar {
     display: flex;
     flex-direction: column;
@@ -85,7 +98,20 @@
     background: transparent;
     font-size: 1.8;
     font-weight: 700;
-    color: #514F5B;
+    color: #3A3D42;
+}
+
+.profile-info form .input-bar input.name {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.8;
+    font-weight: 700;
+    color: #7A7886;
+}
+
+.profile-info form .input-bar input.name:disabled {
+    color: #3A3D42;
 }
 
 .profile-info form .input-bar input::-webkit-input-placeholder {
