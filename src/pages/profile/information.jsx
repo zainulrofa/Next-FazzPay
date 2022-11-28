@@ -6,6 +6,7 @@ import css from "styles/ProfileInfo.module.css";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import userAction from "src/redux/actions/user";
+import { toast } from "react-toastify";
 
 function Information() {
   const router = useRouter();
@@ -25,10 +26,15 @@ function Information() {
     setEdit(!edit);
   };
 
-  const changeHandler = (e) => {
-    setBody({ ...body, [e.target.name]: e.target.value });
-    if (e.target.value) setValue(true);
-    else setValue(false);
+  // const changeHandler = (e) => {
+  //   setBody({ ...body, [e.target.name]: e.target.value });
+  //   if (e.target.value) setValue(true);
+  //   else setValue(false);
+  // };
+
+  const success = () => {
+    toast.success("Data update successfully");
+    router.push("/profile");
   };
 
   const submitHandler = (e) => {
@@ -39,7 +45,9 @@ function Information() {
       lastName: lastName,
     };
     console.log(body);
-    dispatch(userAction.editProfileThunk(userData.token, userData.id, body));
+    dispatch(
+      userAction.editProfileThunk(userData.token, userData.id, body, success)
+    );
   };
 
   useEffect(() => {
