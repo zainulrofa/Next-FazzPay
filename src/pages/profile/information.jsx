@@ -34,6 +34,9 @@ function Information() {
                     support.
                   </p>
                 </div>
+                <div className={css["edit-btn"]}>
+                  <p>Edit</p>
+                </div>
                 <form action="">
                   <div className={css["input-bar"]}>
                     <label htmlFor="">First Name</label>
