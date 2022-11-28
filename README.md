@@ -84,7 +84,7 @@ You may also see any lint errors in the console.
 ## Screenshots
 
 <div align="center">
-<img width="500" src="src/assets/landing-page.png" alt="Landing page">
+<img width="500" src="https://raw.githubusercontent.com/zainulrofa/Next-FazzPay/src/assets/history.png" alt="Landing page">
 
 <img width="500" src="src/assets/login.png" alt="Login page">
 
