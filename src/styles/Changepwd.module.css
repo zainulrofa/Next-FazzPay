@@ -4,10 +4,7 @@
   background-color: #E5E5E5;
   display: flex;
   gap: 3rem;
-  padding-top: 3rem;
-  padding-left: 10rem;
-  padding-right: 10rem;
-  padding-bottom: 3rem;
+  padding: 2rem 8rem;
 }
 
 .main-container .box-main {
