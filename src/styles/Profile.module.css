@@ -84,8 +84,7 @@
 }
 
 .main-content .profile-content .profile-btn button:hover {
-    background-color: #6379F4;
-    color: white;
+    opacity: .7;
 }
 
 .main-content .profile-content .profile-btn button:active {
@@ -170,6 +169,31 @@
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
+  }
+
+  .btn-close {
+    cursor: pointer;
+    color: #6379f4;
+    margin: 0;
+    text-align: center;
+    font-size: 25px;
+    width: 10rem;
+    border-radius: 25px;
+    padding: 1rem;
+    background-color: white;
+    border: 1px solid #6379f4;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+  }
+
+  .btn-close:hover {
+    opacity: .9;
+  }
+
+  .btn-close p {
+    margin: 0;
   }
 
   .btn p {

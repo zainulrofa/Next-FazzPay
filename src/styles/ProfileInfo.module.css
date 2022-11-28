@@ -19,6 +19,7 @@
     font-size: 1.2rem;
     font-weight: 700;
     color: #3A3D42;
+    margin: 0;
 }
 
 .profile-info .definition p {
@@ -27,12 +28,29 @@
     color: #7A7886;
     max-width: 50%;
     padding: 1rem 0;
+    margin: 0;
+}
+
+.profile-info .edit-btn {
+    display: flex;
+    justify-content: flex-end;
+    color: #6379F4;
+    font-weight: 600;
+    user-select: none;
+}
+
+.profile-info .edit-btn:hover {
+    cursor: pointer;
+}
+
+.profile-info .edit-btn p {
+    margin: 0;
 }
 
 .profile-info form .input-bar {
     display: flex;
     flex-direction: column;
-    padding: .5rem 0;
+    padding: 0 0 .5rem;
 }
 
 .profile-info form .input-phone {

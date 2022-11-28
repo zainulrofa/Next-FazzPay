@@ -104,7 +104,7 @@
 }
 
 .form-password button:disabled {
-  color: #3a3d42;
+  color: #7A7886;
   background-color: #3a3d424d;
 }
 
@@ -175,6 +175,10 @@
   overflow: hidden;
   position: relative;
   box-shadow: 0 4px 20px #0000000d;
+}
+
+.form-password .blue {
+  color: #6379f4!important;
 }
 
 @media (max-width: 576px) {
