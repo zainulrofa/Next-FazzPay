@@ -5,6 +5,7 @@ export const ACTION_STRING = {
   authForgot: "AUTH_FORGOT_PASSWORD",
   authReset: "AUTH_RESET_PASSWORD",
   userDetail: "USER_GET_DETAIL",
+  userReceive: "USER_GET_RECEIVE",
   userCheckPin: "USER_CHECK_PIN",
   userEditProfile: "USER_EDIT_PROFILE",
   userEditPhone: "USER_EDIT_PHONE",
@@ -17,4 +18,8 @@ export const ACTION_STRING = {
   pending: "_PENDING",
   rejected: "_REJECTED",
   fulfilled: "_FULFILLED",
+  resetTransfer: "TRANSFER_RESET",
+  transferData: "TRANSFER_DATA",
+  transfer: "TRANSFER",
+  getStatistic: "GET_STATISTIC",
 };
