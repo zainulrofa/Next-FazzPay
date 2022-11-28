@@ -16,9 +16,9 @@ export const getDetailUser = (token, id) =>
 export const checkPin = (token, pin) =>
   axios.get(`${baseUrl}/pin?pin=${pin}`, config(token));
 
-export const editProfile = (token, id, body) =>
-  axios.patch(`${baseUrl}/profile/${id}`, body, config(token));
-
+export const editProfile = (token, id, body) => {
+  return axios.patch(`${baseUrl}/profile/${id}`, body, config(token));
+};
 export const editPhone = (token, id, body) =>
   axios.patch(`${baseUrl}/profile/${id}`, body, config(token));
 
