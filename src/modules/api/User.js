@@ -13,6 +13,9 @@ const config = (token) => {
 export const getDetailUser = (token, id) =>
   axios.get(`${baseUrl}/profile/${id}`, config(token));
 
+export const getReceiveUser = (token, id) =>
+  axios.get(`${baseUrl}/profile/${id}`, config(token));
+
 export const checkPin = (token, pin) =>
   axios.get(`${baseUrl}/pin?pin=${pin}`, config(token));
 
