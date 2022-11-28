@@ -14,6 +14,7 @@ const initialState = {
     noTelp: null,
     balance: null,
   },
+  msgWrongPass: null,
 };
 
 const userReducer = (prevState = initialState, { type, payload }) => {
@@ -183,7 +184,7 @@ const userReducer = (prevState = initialState, { type, payload }) => {
         isError: true,
         isLoading: false,
         isFulfilled: false,
-        error: payload.error.response.data.msg,
+        msgWrongPass: payload.error.response.data.msg,
       };
     case userEditPassword.concat("_", Fulfilled):
       return {
