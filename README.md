@@ -79,16 +79,18 @@ You may also see any lint errors in the console.
 
 ## Deployment
 
-[Vercel deploy link](https://zwallet-next.vercel.app/)
+[Vercel deploy link](https://next-fazz-pay.vercel.app/)
 
 ## Screenshots
 
 <div align="center">
-<img width="500" src="https://raw.githubusercontent.com/anshoriacc/zwallet-nextjs/main/public/images/ss1.png" alt="Landing page">
+<img width="500" src="src/assets/landing-page.png" alt="Landing page">
 
-<img width="500" src="https://raw.githubusercontent.com/anshoriacc/zwallet-nextjs/main/public/images/ss2.png" alt="Login page">
+<img width="500" src="src/assets/login.png" alt="Login page">
 
-<img width="500" src="https://raw.githubusercontent.com/anshoriacc/zwallet-nextjs/main/public/images/ss3.png" alt="Dashboard">
+<img width="500" src="src/assets/dashboard.png" alt="Dashboard">
 
-<img width="500" src="https://raw.githubusercontent.com/anshoriacc/zwallet-nextjs/main/public/images/ss4.png" alt="Transfer history">
+<img width="500" src="src/assets/history.png" alt="Transfer history">
+
+<img width="500" src="src/assets/profil-page.png" alt="Profile">
 </div>
