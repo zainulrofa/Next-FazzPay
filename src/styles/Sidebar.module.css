@@ -85,30 +85,29 @@
   }
 
   .modal {
-    width: 100%;
-    height: 100vw;
     position: fixed;
-    z-index: 15;
-    top: 0;
-    left: 0;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
     background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
   }
   
   .modal-container {
-    justify-content: space-between;
-    user-select: none;
+    width: 600px;
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     display: flex;
-    font-weight: 700;
-    font-size: 25px;
     flex-direction: column;
-    background-color: white;
-    width: 40%;
-    top: 10%;
-    left: 30%;
-    min-height: 20rem;
-    border-radius: 25px;
-    padding: 2rem;
-    position: absolute;
+    /* align-items: center; */
+    gap: 1rem;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
@@ -116,7 +115,10 @@
   }
 
   .title-modal p {
-    text-align: start;
+    text-align: start!important;
+    font-size: 2rem;
+    font-weight: 700;
+    padding-left: 2rem;
   }
 
   .ask {
