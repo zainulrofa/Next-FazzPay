@@ -38,7 +38,7 @@ export default function CreatePin() {
 
   const createPinSuccess = () => {
     toast.success(`Congrats! Your pin created successfully!`);
-    router.push("/");
+    router.push("/dashboard");
   };
 
   const createPinError = () => {
