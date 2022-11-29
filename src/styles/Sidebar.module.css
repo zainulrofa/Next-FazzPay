@@ -106,24 +106,24 @@
     padding-bottom: 30px;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
     gap: 1rem;
-    -webkit-border-radius: 25px;
-    -moz-border-radius: 25px;
-    -ms-border-radius: 25px;
-    -o-border-radius: 25px;
+  }
+
+  .title-modal, .container-btn {
+    padding: 10px;
   }
 
   .title-modal p {
     text-align: start!important;
-    font-size: 2rem;
+    font-size: 35px;
     font-weight: 700;
-    padding-left: 2rem;
+    margin: 0;
   }
 
   .ask {
     font-weight: 400;
-    font-size: 40px;
+    font-size: 30px;
     margin: auto;
     width: 70%;
     text-align: center;
@@ -138,6 +138,14 @@
   .btn:hover {
     opacity: 0.8;
   }
+
+  .btn, .btn-close {
+    width: 130px;
+    height: 60px;
+    font-size: 25px;
+    font-weight: 700;
+    border-radius: 20px;
+  }
   
   .btn {
     cursor: pointer;
@@ -147,7 +155,7 @@
     font-size: 25px;
     width: 10rem;
     border-radius: 25px;
-    padding: 1rem;
+    padding: .7rem 3rem 0;
     background-color: #6379f4;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
@@ -163,7 +171,7 @@
     font-size: 25px;
     width: 10rem;
     border-radius: 25px;
-    padding: 1rem;
+    padding: .7rem 3rem 0;
     background-color: white;
     border: 1px solid #6379f4;
     -webkit-border-radius: 25px;
@@ -232,19 +240,15 @@
       padding-bottom: 30px;
       display: flex;
       flex-direction: column;
-      /* align-items: center; */
+      align-items: center;
       gap: 1rem;
-      -webkit-border-radius: 25px;
-      -moz-border-radius: 25px;
-      -ms-border-radius: 25px;
-      -o-border-radius: 25px;
     }
 
     .ask {
       font-weight: 400;
       font-size: 2rem;
       margin: auto;
-      width: 70%;
+      width: 100%;
       text-align: center;
     }
 
@@ -252,6 +256,11 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
+  }
+
+  .btn, .btn-close {
+    width: 100%;
+    padding: .7rem 3rem 0;
   }
   
     .container {

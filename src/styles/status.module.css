@@ -15,6 +15,7 @@
 .title {
   font-size: 1.5rem;
   font-weight: 700;
+  margin: 0;
 }
 
 .search {
@@ -45,7 +46,7 @@
   box-shadow: 0 4px 20px #0000000d;
   border-radius: 10px;
   display: flex;
-  padding: 0.5rem;
+  padding: 1rem;
   grid-gap: 1rem;
   cursor: pointer;
 }
@@ -89,6 +90,7 @@
   background-color: #6379f4;
   color: white;
   line-height: 1rem;
+  margin: 0;
 }
 
 .pagination-buttons button:hover {
@@ -123,6 +125,7 @@
   font-size: 3rem;
   font-weight: 700;
   color: var(--primary);
+  margin: 0;
 }
 
 .input-amount:focus {
@@ -142,6 +145,7 @@
 
 .form .balance {
   font-weight: 700;
+  margin: 0;
 }
 
 .input-notes {
@@ -164,6 +168,7 @@ button.confirm {
   font-weight: 700;
   padding: 1rem 2rem;
   align-self: flex-end;
+  margin: 0;
 }
 
 /* confirmation */
@@ -171,10 +176,9 @@ button.confirm {
 .item-container {
   width: 100%;
   background-color: white;
-  padding: 0.5rem;
+  padding: 1rem;
   box-shadow: 0 4px 20px #0000000d;
   border-radius: 10px;
-  height: 4.5em;
 }
 
 .item-container.phone {
@@ -189,8 +193,10 @@ button.confirm {
 }
 
 .info-value {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #514f5b;
+  margin: 0;
 }
 
 .details {
@@ -216,7 +222,7 @@ button.confirm {
 
 /* status */
 .main-status {
-  background-color: #FAFCFF;
+  background-color: #fafcff;
   display: flex;
   /* flex-direction: column; */
   grid-gap: 1rem;
@@ -230,7 +236,7 @@ button.confirm {
 
 .status-info {
   background-color: white;
-  box-shadow: 0px 4px 20px 0px #0000000D;
+  box-shadow: 0px 4px 20px 0px #0000000d;
   border-radius: 25px;
   padding: 0 1.5rem 2rem;
   display: flex;
@@ -241,8 +247,6 @@ button.confirm {
 }
 
 .status {
-  width: 3rem;
-  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -251,25 +255,76 @@ button.confirm {
   color: rgb(255, 255, 255);
   font-size: 2rem;
   line-height: 2rem;
+  margin: 0;
 }
 
-.status.success {
-  background-color: green;
+.success {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  color: white;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background-color: #1ec15f !important;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
-.status.failed {
-  background-color: red;
+.failed {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  color: white;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  background-color: var(--red) !important;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .status-text {
+  padding-top: 1rem;
   font-weight: 700;
+  color: #4d4b57;
+  font-size: 22px;
+  margin: 0;
+}
+
+.status-text p {
+  margin: 0;
 }
 
 .info {
+  margin-top: 2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   grid-gap: 1rem;
+}
+
+.info-label {
+  color: #7a7886;
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+}
+
+.title {
+  color: #514f5b;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0;
 }
 
 .receiver {
@@ -286,7 +341,7 @@ button.confirm {
 }
 
 .download .icon-fontawesome {
-  padding-right: .8rem;
+  padding-right: 0.8rem;
 }
 
 .buttons button {
@@ -309,4 +364,22 @@ button.confirm {
 .center {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 576px) {
+
+  .main-status {
+    padding: 0 !important;
+    grid-gap: 0;
+  }
+
+  .buttons {
+    padding-top: 2em;
+    align-self: center;
+  }
+
+  .buttons button {
+    font-weight: 400;
+    padding: 1rem .7rem;
+  }
 }
