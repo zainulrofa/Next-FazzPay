@@ -4,7 +4,7 @@ import Sidebar from "src/Components/Sidebar";
 import Footer from "src/Components/Footer";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
-import styles from "styles/Changepin.module.css";
+import styles from "styles/ChangePin.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
