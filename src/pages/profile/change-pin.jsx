@@ -37,7 +37,7 @@ function CreatePin() {
   };
 
   const createPinSuccess = () => {
-    toast.success(`Congrats! ${body.email} your pin created successfully!`);
+    toast.success(`Congrats! Your pin updated successfully!`);
     router.push("/profile");
   };
 
@@ -58,7 +58,7 @@ function CreatePin() {
         userData.token,
         userData.id,
         body,
-        createPinSuccess
+        createPinSuccess()
         // createPinError
       )
     );
