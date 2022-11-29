@@ -49,9 +49,9 @@ export default function Login() {
   useEffect(() => {
     if (auth.isLoading) setEmptyForm(true);
     if (auth.isFulfilled) {
-      dispatch(
-        userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
-      );
+      // dispatch(
+      //   userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
+      // );
       if (!auth.userData.pin) router.push("/createpin");
       if (auth.userData.pin) router.push("/dashboard");
     }

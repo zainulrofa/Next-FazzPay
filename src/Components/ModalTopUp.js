@@ -2,19 +2,23 @@ import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { currency } from "src/modules/helpers/currency";
 import topUpAction from "src/redux/actions/topUp";
 import styles from "styles/ModalTopUp.module.css";
 
 function ModalTopUp({ setOpen, open, token }) {
   const dispatch = useDispatch();
   const [body, setBody] = useState({});
+  const [amount, setAmount] = useState("");
   //   const directedLink = useSelector((state) => state.topUp.redirectUrl);
   const linkRef = useRef(null);
 
   //   console.log(directedLink);
 
-  const changeHandler = (e) =>
+  const changeHandler = (e) => {
     setBody({ ...body, [e.target.name]: e.target.value });
+    setAmount(e.target.value);
+  };
 
   const topUpSuccess = (directedLink) => {
     setOpen(!open);
@@ -41,6 +45,7 @@ function ModalTopUp({ setOpen, open, token }) {
             <input
               type="text"
               name="amount"
+              value={currency(amount)}
               className={styles["input-amount"]}
               onChange={changeHandler}
             />

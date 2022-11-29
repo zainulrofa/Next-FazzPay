@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { Children, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import PageTitle from "src/Components/PageTitle";
-import { getDetailUser } from "src/modules/api/User";
+import { getDetailUser, getReceiveUser } from "src/modules/api/User";
 import css from "styles/Amount.module.css";
 import Navbar from "src/Components/Navbar";
 import Sidebar from "src/Components/Sidebar";
@@ -13,6 +13,7 @@ import { currency } from "src/modules/helpers/currency";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import transferAction from "src/redux/actions/transfer";
+import userAction from "src/redux/actions/user";
 
 function Amount() {
   const router = useRouter();

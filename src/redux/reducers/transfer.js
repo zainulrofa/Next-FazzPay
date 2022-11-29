@@ -28,11 +28,11 @@ const transferReducer = (prevState = initialState, { payload, type }) => {
       return {
         ...prevState,
         transferData: {
-          receiverId: payload.receiverId,
-          date: payload.date,
-          amount: payload.amount,
-          notes: payload.notes,
-          receiverData: payload.receiverData,
+          receiverId: payload.body.receiverId,
+          date: payload.body.date,
+          amount: payload.body.amount,
+          notes: payload.body.notes,
+          receiverData: payload.body.receiverData,
         },
       };
 

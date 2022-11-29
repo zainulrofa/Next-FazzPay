@@ -10,7 +10,7 @@ function Card({ data }) {
   return (
     <Link
       href={`/transfer/amount?receiver=${data.id}`}
-      //   href={`/transfer/ammount/${data.id}`}
+      // href={`/transfer/ammount/${data.id}`}
       passHref
       style={{ textDecoration: "none" }}
     >

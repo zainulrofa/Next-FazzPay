@@ -83,9 +83,9 @@ function Sidebar() {
   };
 
   useEffect(() => {
-    dispatch(
-      userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
-    );
+    // dispatch(
+    //   userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
+    // );
     if (auth.isLoading) setisLoading(true);
   }, [auth]);
 
