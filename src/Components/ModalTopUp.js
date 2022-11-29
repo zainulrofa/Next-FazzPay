@@ -9,7 +9,7 @@ import styles from "styles/ModalTopUp.module.css";
 function ModalTopUp({ setOpen, open, token }) {
   const dispatch = useDispatch();
   const [body, setBody] = useState({});
-  const [amount, setAmount] = useState("");
+  // const [amount, setAmount] = useState();
   //   const directedLink = useSelector((state) => state.topUp.redirectUrl);
   const linkRef = useRef(null);
 
@@ -17,7 +17,7 @@ function ModalTopUp({ setOpen, open, token }) {
 
   const changeHandler = (e) => {
     setBody({ ...body, [e.target.name]: e.target.value });
-    setAmount(e.target.value);
+    // setAmount(e.target.value);
   };
 
   const topUpSuccess = (directedLink) => {
@@ -45,7 +45,7 @@ function ModalTopUp({ setOpen, open, token }) {
             <input
               type="text"
               name="amount"
-              value={currency(amount)}
+              // value={currency(amount)}
               className={styles["input-amount"]}
               onChange={changeHandler}
             />

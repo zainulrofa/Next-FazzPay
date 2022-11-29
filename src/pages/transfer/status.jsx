@@ -114,7 +114,7 @@ function Status() {
               <button
                 className={`btn btn-primary ${styles["home"]}`}
                 onClick={() => {
-                  router.push("/home/test");
+                  router.push("/dashboard");
                 }}
               >
                 Back to Home

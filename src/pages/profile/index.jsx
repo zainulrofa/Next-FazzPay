@@ -57,7 +57,15 @@ function Profile() {
     console.log(body);
 
     dispatch(
-      userAction.editImageThunk(auth.userData.token, auth.userData.id, body)
+      userAction.editImageThunk(
+        auth.userData.token,
+        auth.userData.id,
+        body,
+        () => {
+          toast.success("Image updated successfully");
+          // router.push("/dashboard");
+        }
+      )
     );
   };
 
@@ -65,7 +73,7 @@ function Profile() {
     dispatch(
       userAction.getUserDetailThunk(auth.userData.token, auth.userData.id)
     );
-  }, [auth]);
+  }, [dispatch, auth]);
 
   return (
     <>

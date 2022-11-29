@@ -196,12 +196,13 @@ const editPhoneThunk = (token, id, body, cbSuccess, cbDenied) => {
   };
 };
 
-const editImageThunk = (token, id, body) => {
+const editImageThunk = (token, id, body, cbSuccess) => {
   return async (dispatch) => {
     try {
       dispatch(editImagePending());
       const result = await editImage(token, id, body);
       dispatch(editImageFulfilled(result.data));
+      typeof cbSuccess === "function" && cbSuccess();
     } catch (error) {
       dispatch(editImageRejected(error));
     }
