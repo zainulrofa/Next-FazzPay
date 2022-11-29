@@ -22,7 +22,7 @@ function Home() {
   const token = useSelector((state) => state.auth.userData.token);
   let page = parseInt(router.query.page) || 1;
 
-  console.log(userData);
+  // console.log(paginationData);
 
   useEffect(() => {
     router.query.q
@@ -39,7 +39,7 @@ function Home() {
             setPaginationData(res.data.pagination);
           })
           .catch((err) => console.log(err));
-    // dispatch(transferAction.transferReset());
+    dispatch(transferAction.transferReset());
   }, [router.query]);
 
   return (
@@ -80,6 +80,25 @@ function Home() {
               <div className={css["no-data"]}>No Data Available</div>
             </div>
           )}
+          <div className={css["btn-container"]}>
+            <button
+              disabled
+              // disabled={query.page === 1 ? true : false}
+              // onClick={() => {
+              //   setQuery({ ...query, page: query.page - 1 });
+              // }}
+            >
+              <i className="fa-solid fa-caret-left"></i>
+            </button>
+            <button
+            // disabled={query.page === totalPage ? true : false}
+            // onClick={() => {
+            //   setQuery({ ...query, page: query.page + 1 });
+            // }}
+            >
+              <i className="fa-solid fa-caret-right"></i>
+            </button>
+          </div>
         </aside>
       </div>
       <Footer />
