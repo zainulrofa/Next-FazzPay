@@ -100,101 +100,111 @@ function Changepassword() {
     <>
       <Header />
       <div className={css["main-container"]}>
-        <div className="col-lg-3 col-md-4">
-          <Sidebar />
-        </div>
-        <div className="col-lg-9 col-md-8 col-12">
-          <div className={css["box-main"]}>
-            <div className={css["header"]}>
-              <h2 className={css["title"]}>Change Password</h2>
+        <div className="container">
+          <div className={`row ${css["main-content"]}`}>
+            <div className="col-lg-3 col-md-4">
+              <Sidebar />
             </div>
-            <div className={css["title-small"]}>
-              <p>
-                You must enter your current password and then type your new
-                password twice.
-              </p>
+            <div className="col-lg-9 col-md-8 col-12">
+              <div className={css["box-main"]}>
+                <div className={css["header"]}>
+                  <h2 className={css["title"]}>Change Password</h2>
+                </div>
+                <div className={css["title-small"]}>
+                  <p>
+                    You must enter your current password and then type your new
+                    password twice.
+                  </p>
+                </div>
+                <form className={css["form-password"]} onSubmit={editPassword}>
+                  <div className={css["password"]}>
+                    {emptyForm ? (
+                      <i className="fa-solid fa-lock"></i>
+                    ) : (
+                      <i className={`fa-solid fa-lock ${css.blue}`}></i>
+                    )}
+                    <input
+                      type={passwordShown ? "text" : "password"}
+                      name="oldPassword"
+                      placeholder="Enter your old password"
+                      required
+                      onClick={() => setSimilarity1(false)}
+                      onChange={changeHandler}
+                    ></input>
+                    <i
+                      className={`bi ${
+                        passwordShown ? `bi-eye-slash` : `bi-eye`
+                      } 
+          ${css["toggle-password"]}`}
+                      onClick={togglePassword}
+                    ></i>
+                  </div>
+                  <div className={css["password"]}>
+                    {emptyForm ? (
+                      <i className="fa-solid fa-lock"></i>
+                    ) : (
+                      <i className={`fa-solid fa-lock ${css.blue}`}></i>
+                    )}
+                    <input
+                      type={passwordShown1 ? "text" : "password"}
+                      name="newPassword"
+                      placeholder="Enter your new password"
+                      required
+                      onClick={() => setSimilarity2(false)}
+                      onChange={changeHandler}
+                    ></input>
+                    <i
+                      className={`bi ${
+                        passwordShown1 ? `bi-eye-slash` : `bi-eye`
+                      } 
+          ${css["toggle-password"]}`}
+                      onClick={togglePassword1}
+                    ></i>
+                  </div>
+                  <div className={css["password"]}>
+                    {emptyForm ? (
+                      <i className="fa-solid fa-lock"></i>
+                    ) : (
+                      <i className={`fa-solid fa-lock ${css.blue}`}></i>
+                    )}
+                    <input
+                      type={passwordShown2 ? "text" : "password"}
+                      name="confirmPassword"
+                      placeholder="Re-enter your password"
+                      required
+                      onClick={() => setSimilarity2(false)}
+                      onChange={changeHandler}
+                    ></input>
+                    <i
+                      className={`bi ${
+                        passwordShown2 ? `bi-eye-slash` : `bi-eye`
+                      } 
+          ${css["toggle-password"]}`}
+                      onClick={togglePassword2}
+                    ></i>
+                  </div>
+                  <p
+                    className={`${css["password-notif"]} ${
+                      !similarity1 ? css["show"] : css["hide"]
+                    }`}
+                  >
+                    Your new password cannot be the same as your old password!
+                  </p>
+                  <p
+                    className={`${css["password-notif"]} ${
+                      similarity2 ? css["hide"] : css["show"]
+                    }`}
+                  >
+                    Retyped password didn&apos;t match!
+                  </p>
+                  <div className={css["edit-btn"]}>
+                    <button type="submit" disabled={emptyForm}>
+                      Change Password
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
-            <form className={css["form-password"]} onSubmit={editPassword}>
-              <div className={css["password"]}>
-                {emptyForm ? (
-                  <i className="fa-solid fa-lock"></i>
-                ) : (
-                  <i className={`fa-solid fa-lock ${css.blue}`}></i>
-                )}
-                <input
-                  type={passwordShown ? "text" : "password"}
-                  name="oldPassword"
-                  placeholder="Enter your old password"
-                  required
-                  onClick={() => setSimilarity1(false)}
-                  onChange={changeHandler}
-                ></input>
-                <i
-                  className={`bi ${passwordShown ? `bi-eye-slash` : `bi-eye`} 
-          ${css["toggle-password"]}`}
-                  onClick={togglePassword}
-                ></i>
-              </div>
-              <div className={css["password"]}>
-                {emptyForm ? (
-                  <i className="fa-solid fa-lock"></i>
-                ) : (
-                  <i className={`fa-solid fa-lock ${css.blue}`}></i>
-                )}
-                <input
-                  type={passwordShown1 ? "text" : "password"}
-                  name="newPassword"
-                  placeholder="Enter your new password"
-                  required
-                  onClick={() => setSimilarity2(false)}
-                  onChange={changeHandler}
-                ></input>
-                <i
-                  className={`bi ${passwordShown1 ? `bi-eye-slash` : `bi-eye`} 
-          ${css["toggle-password"]}`}
-                  onClick={togglePassword1}
-                ></i>
-              </div>
-              <div className={css["password"]}>
-                {emptyForm ? (
-                  <i className="fa-solid fa-lock"></i>
-                ) : (
-                  <i className={`fa-solid fa-lock ${css.blue}`}></i>
-                )}
-                <input
-                  type={passwordShown2 ? "text" : "password"}
-                  name="confirmPassword"
-                  placeholder="Re-enter your password"
-                  required
-                  onClick={() => setSimilarity2(false)}
-                  onChange={changeHandler}
-                ></input>
-                <i
-                  className={`bi ${passwordShown2 ? `bi-eye-slash` : `bi-eye`} 
-          ${css["toggle-password"]}`}
-                  onClick={togglePassword2}
-                ></i>
-              </div>
-              <p
-                className={`${css["password-notif"]} ${
-                  !similarity1 ? css["show"] : css["hide"]
-                }`}
-              >
-                Your new password cannot be the same as your old password!
-              </p>
-              <p
-                className={`${css["password-notif"]} ${
-                  similarity2 ? css["hide"] : css["show"]
-                }`}
-              >
-                Retyped password didn&apos;t match!
-              </p>
-              <div className={css["edit-btn"]}>
-                <button type="submit" disabled={emptyForm}>
-                  Change Password
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </div>

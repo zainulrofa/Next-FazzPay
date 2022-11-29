@@ -2,9 +2,10 @@
 
 .main-container {
   background-color: #E5E5E5;
-  display: flex;
-  gap: 3rem;
-  padding: 2rem 8rem;
+}
+
+.main-container .main-content {
+  padding: 2rem 2.2rem;
 }
 
 .main-container .box-main {
@@ -179,10 +180,8 @@
 }
 
 @media (max-width: 576px) {
-  .main-container {
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
+  .main-container .main-content {
+    padding: 2rem .5rem;  
   }
 
   .form-password {
@@ -198,7 +197,14 @@
   }
 }
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+  .form-password {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 2rem;
+    padding: 1rem;
+  }
+}
 
 @media (max-width: 992px) {
   .link-container {

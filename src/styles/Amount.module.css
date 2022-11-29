@@ -511,6 +511,10 @@
 }
 
 @media screen and (max-width: 576px) {
+  .type {
+    width: 100%;
+  }
+
   .onMobile {
     display: none;
   }

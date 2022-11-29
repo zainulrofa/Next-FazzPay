@@ -208,12 +208,12 @@
 
 @media screen and (max-width:567px) {
     .main-content {
-        padding: 2rem 0;
+        padding: 0 0 2rem;
     }
 
     .main-content .profile-content {
         display: block;
-        padding: 0 1rem;
+        padding: 1rem;
         max-width: 100%;
     }
 

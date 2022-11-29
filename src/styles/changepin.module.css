@@ -1,15 +1,16 @@
 .main-container {
   background-color: #E5E5E5;
-  display: flex;
-  padding: 2rem 8rem;
-  gap: 3rem;
+}
+
+.main-container .main-content {
+  padding: 2rem 2.2rem;
 }
 
 .main-container .pin-container {
   background-color: white;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2rem 2rem 10rem;
   box-shadow: 0 4px 20px #0000000d;
   border-radius: 20px;
   width: -webkit-fill-available;
@@ -140,7 +141,7 @@
   padding-top: 6rem;
   display: flex;
   flex-direction: column;
-  grid-gap: 4rem;
+  grid-gap: 1rem;
   /* align-items: center; */
 }
 
@@ -193,9 +194,8 @@
 }
 
 @media (max-width: 576px) {
-  .main-container {
-    flex-direction: column;
-    padding: 1rem;
+  .main-container .main-content {
+    padding: 2rem 1rem;
   }
 
   .pin-container {
