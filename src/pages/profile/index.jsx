@@ -85,8 +85,8 @@ function Profile() {
                         alt="profile"
                         src={display || `${link}/${profile.image}` || sample}
                         placeholder="blur"
-                        blurDataURL={"./assets/avatar.jpg"}
-                        onError={() => "./assets/avatar.jpg"}
+                        blurDataURL={"../../assets/avatar.webp"}
+                        onError={() => "../../assets/avatar.webp"}
                         layout="fill"
                         objectFit="cover"
                       />
