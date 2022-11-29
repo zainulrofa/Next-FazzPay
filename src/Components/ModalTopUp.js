@@ -24,6 +24,7 @@ function ModalTopUp({ setOpen, open, token }) {
   const topUpFailed = (errorMsg) => {
     setOpen(!open);
     toast.error(`${errorMsg}`);
+    console.log(errorMsg);
   };
   const topupHandler = (e) => {
     e.preventDefault();
