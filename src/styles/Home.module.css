@@ -325,6 +325,10 @@
   .mobile-only {
     display: none;
   }
+
+  .bar {
+    margin-top: 6rem!important;
+  }
   
   @media screen and (max-width: 567px) {
     .mobile-only {

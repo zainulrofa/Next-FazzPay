@@ -37,7 +37,7 @@ export default function CreatePin() {
   };
 
   const createPinSuccess = () => {
-    toast.success(`Congrats! ${body.email} your pin created successfully!`);
+    toast.success(`Congrats! Your pin created successfully!`);
     router.push("/");
   };
 
@@ -58,8 +58,8 @@ export default function CreatePin() {
         userData.token,
         userData.id,
         body,
-        createPinSuccess,
-        createPinError
+        createPinSuccess()
+        // createPinError
       )
     );
   };

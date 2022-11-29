@@ -157,8 +157,8 @@ function Home() {
                   <i className="fa-sharp fa-solid fa-arrow-up"></i>
                   <p>Transfer</p>
                 </div>
-                <div className={css.btn}>
-                  <i className="fa-solid fa-plus" onClick={modalHandler}></i>
+                <div className={css.btn} onClick={modalHandler}>
+                  <i className="fa-solid fa-plus"></i>
                   <p>Top Up</p>
                 </div>
               </div>

@@ -28,8 +28,9 @@ export const editPhone = (token, id, body) =>
 export const editImage = (token, id, body) =>
   axios.patch(`${baseUrl}/image/${id}`, body, config(token));
 
-export const editPin = (token, id, body) =>
-  axios.patch(`${baseUrl}/pin/${id}`, body, config(token));
+export const editPin = (token, id, body) => {
+  return axios.patch(`${baseUrl}/pin/${id}`, body, config(token));
+};
 
 export const editPassword = (token, id, body) =>
   axios.patch(`${baseUrl}/password/${id}`, body, config(token));
