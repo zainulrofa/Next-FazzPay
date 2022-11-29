@@ -57,10 +57,12 @@
   .confirm {
     background-color: var(--primary);
     color: var(--secondary);
+    border: none;
   }
-  .confirm:active {
-    background-color: #6a4029;
-    color: #ffffff;
+  .cancel {
+    background-color: #ffffff;
+    color: var(--primary);
+    border: 1px solid var(--primary);
   }
   .input-amount {
     width: 80%;
@@ -68,4 +70,19 @@
     border-radius: 1rem;
     outline: none;
     font-size: 1.25rem;
+  }
+
+  @media screen and (max-width: 567px) {
+    .modal-content {
+      width: 90%;
+      background-color: #ffffff;
+      text-align: center;
+      border-radius: 20px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
   }

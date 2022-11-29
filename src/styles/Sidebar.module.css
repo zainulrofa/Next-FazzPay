@@ -222,6 +222,37 @@
       background-color: rgba(0, 0, 0, 0.8);
       display: none;
     }
+
+    .modal-container {
+      width: 90%;
+      background-color: #ffffff;
+      text-align: center;
+      border-radius: 20px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      /* align-items: center; */
+      gap: 1rem;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      -ms-border-radius: 25px;
+      -o-border-radius: 25px;
+    }
+
+    .ask {
+      font-weight: 400;
+      font-size: 2rem;
+      margin: auto;
+      width: 70%;
+      text-align: center;
+    }
+
+    .container-btn {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
   
     .container {
       display: none;
@@ -242,7 +273,7 @@
       padding-bottom: 1.5rem;
       padding-right: 1.5rem;
       padding-left: 1rem;
-      height: 92%;
+      height: 90%;
       transform: translateX(0);
       transition: all ease-in .5s;
       -webkit-border-radius: 0px;
