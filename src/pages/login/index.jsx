@@ -32,7 +32,8 @@ export default function Login() {
       return toast.success(`Login Successfully! Welcome ${body.email}`);
   };
 
-  const loginError = () => toast.error(`Login Failed: ${auth.error}`);
+  const loginError = (error) =>
+    toast.error(`Login Failed: ${error.response.data.msg}`);
 
   const changeHandler = (e) =>
     setBody({ ...body, [e.target.name]: e.target.value });

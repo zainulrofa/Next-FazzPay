@@ -25,7 +25,7 @@ export default function Forgot() {
     toast.success(`${auth.msg}`);
   };
 
-  const forgotDenied = () => toast.error(`${auth.error}`);
+  const forgotDenied = (error) => toast.error(`${error.response.data.msg}`);
 
   const changeHandler = (e) =>
     setBody({ ...body, [e.target.name]: e.target.value });
