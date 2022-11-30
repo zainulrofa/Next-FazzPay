@@ -14,7 +14,8 @@ export default function Forgot() {
   const router = useRouter();
   const auth = useSelector((state) => state.auth);
   const [body, setBody] = useState({
-    linkDirect: "http://localhost:3000/reset-password/",
+    // linkDirect: "http://localhost:3000/reset-password/",
+    linkDirect: "https://next-fazz-pay.vercel.app/reset-password/",
   });
   const [emptyForm, setEmptyForm] = useState(true);
 

@@ -78,6 +78,7 @@
 .profile-info form .input-bar .left {
     display: flex;
     flex-direction: column;
+    max-width: 100%;
 }
 
 .profile-info form .input-bar .right p {

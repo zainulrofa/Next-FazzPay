@@ -49,7 +49,7 @@ function Home() {
   console.log(totalPage);
   return (
     <>
-      <Header title={"HOME"} />
+      <Header title={"Transaction History"} />
       <Navbar />
       <div className={css.container}>
         <div className={`col-lg-3 ${css.onMobile}`}>

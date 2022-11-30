@@ -73,10 +73,12 @@
     font-weight: 700;
     border-radius: 0.75rem;
   }
+
   .form button:disabled {
-    color: var(--disabled-mobile);
+    color: white;
     background-color: var(--dark03);
   }
+  
   .form button:hover {
     opacity: 0.9;
   }
@@ -119,6 +121,10 @@
     .form button {
       color: var(--secondary);
       background-color: var(--primary);
+    }
+    .form button:disabled {
+      color: #7A7886;
+      background-color: var(--dark03);
     }
     .link-blue {
       color: var(--dark02);

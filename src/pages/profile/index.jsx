@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "src/Components/Navbar";
+import PageTitle from "src/Components/PageTitle";
 import Sidebar from "src/Components/Sidebar";
 import Footer from "src/Components/Footer";
 import css from "styles/Profile.module.css";
@@ -77,7 +78,8 @@ function Profile() {
 
   return (
     <>
-      <Header title={"Profile"} />
+      <PageTitle title={"Profile"} />
+      <Header />
       <main className={css["container"]}>
         <div className="container">
           <div className={`row ${css["main-content"]}`}>

@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import Header from "src/Components/Navbar";
 import Sidebar from "src/Components/Sidebar";
 import Footer from "src/Components/Footer";
+import PageTitle from "src/Components/PageTitle";
 const ReactCodeInput = dynamic(import("react-code-input"));
 
 import styles from "styles/ChangePin.module.css";
@@ -77,6 +78,7 @@ function CreatePin() {
   }, [isLoading]);
   return (
     <>
+      <PageTitle title={"Change PIN"} />
       <Header />
       <div className={styles["main-container"]}>
         <div className="container">

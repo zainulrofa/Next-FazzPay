@@ -306,7 +306,17 @@
   gap: 40px;
 }
 
-@media (min-width: 425px) {
+@media (min-width: 360px) {
+
+  .header {
+    display: block;
+  }
+
+  .navbar {
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: .5rem;
+  }
 
   .section-1,
   .section-3,
@@ -338,6 +348,10 @@
     margin-top: 50px;
     line-height: 70px;
     text-align: center;
+  }
+
+  .display-9 {
+    margin-bottom: 0;
   }
 
   .section-2 {

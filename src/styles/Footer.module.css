@@ -28,6 +28,11 @@
     .footer p {
         font-size: .8rem;
     }
+
+    .footer-right {
+        display: flex;
+        gap: 1rem;
+    }
 }
 
 @media screen and (max-width:768px) {

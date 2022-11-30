@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "src/Components/Navbar";
 import Footer from "src/Components/Footer";
 import Sidebar from "src/Components/Sidebar";
+import PageTitle from "src/Components/PageTitle";
 import css from "styles/ProfileInfo.module.css";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
@@ -58,6 +59,7 @@ function Information() {
 
   return (
     <>
+      <PageTitle title={"Personal Information"} />
       <Header />
       <main className={css["container"]}>
         <div className="container">

@@ -60,4 +60,10 @@
     height: 57px;
     border: none;
   }
+
+  @media screen and (max-width: 576px) {
+    .login, .signup {
+      width: 100%;
+    }
+  }
   
