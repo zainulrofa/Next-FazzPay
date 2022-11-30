@@ -139,7 +139,11 @@ function Home() {
                 <div className={css["top-left"]}>
                   <p className={css.balance}>Balance</p>
                   <p className={css.price}>{currency(profile.balance)}</p>
-                  <p className={css.phone}>{`+62${profile.noTelp}`}</p>
+                  <p className={css.phone}>
+                    {!profile.noTelp
+                      ? "+62-xx-xxxx-xxxx"
+                      : `+62${profile.noTelp}`}
+                  </p>
                 </div>
                 <div className={`${css["top-btn"]} ${css.btnHide}`}>
                   <div className={css.btn}>
