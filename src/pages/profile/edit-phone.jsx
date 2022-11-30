@@ -14,6 +14,7 @@ function EditPhone() {
   const [body, setBody] = useState({});
   const [emptyForm, setEmptyForm] = useState(true);
   const userData = useSelector((state) => state.auth.userData);
+  // const errorMsg = useSelector((state) => state.user.error);
 
   const checkEmptyForm = (body) => {
     if (!body.noTelp) return setEmptyForm(true);
@@ -27,9 +28,9 @@ function EditPhone() {
     toast.success("Your phone number updated successfully!");
     router.push("/profile/information");
   };
-  // const editPhoneError = () => {
-  //   if (body.length < 12) return toast.error("harus 12 jir");
-  // };
+  const editPhoneError = () => {
+    toast.error("No telp is already used");
+  };
 
   console.log(body);
 
@@ -40,7 +41,8 @@ function EditPhone() {
         userData.token,
         userData.id,
         body,
-        editPhoneSuccess
+        editPhoneSuccess,
+        editPhoneError
       )
     );
   };

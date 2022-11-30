@@ -396,6 +396,10 @@
     flex-direction: row;
   }
 
+  .header {
+    display: flex;
+  }
+
   .section-2 {
     display: block;
     padding: 10px 50px;
